@@ -66,6 +66,6 @@ const button2 = document.querySelector('#btn-2');
 button1.addEventListener('click', updateName);
 button2.addEventListener('click', updateName);
 
-
+  => ex-50.3 done!
 
 所見: 使える!!

@@ -1,0 +1,42 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_51_A first splash into JavaScript\index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <title>JS JavaScript walkthrough</title>
+</head>
+
+<body>
+  <a>"ex-50.4, JavaScript walkthrough<br>
+    ・Introducing our "Number guessing game" example<br></a>
+    <h1>Number guessing game</h1>
+    
+    <p>
+      We have selected a random number between 1 and 100. See if you can guess it in
+      10 turns or fewer. We'll tell you if your guess was too high or too low.
+    </p>
+    
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="number" min="1" max="100" required id="guessField" class="guessField" />
+      <input type="submit" value="Submit guess" class="guessSubmit" />
+    </div>
+    
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+  <hr class="hr1">
+
+  <hr>
+  <script src="index.js" defer></script>
+</body>
+</html>
+

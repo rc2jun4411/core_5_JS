@@ -2,4 +2,5 @@ since 2026-09-14
 
 actions:
 1. GitHub "core_5_JS" JavaScript
-2. creat subfolder "core_50"
+2. creat subfolder "core_50_What_is_JavaScript"
+3. creat subfolder "core_51_A first splash into JavaScript"

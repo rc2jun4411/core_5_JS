@@ -1,0 +1,37 @@
+ref 2. https://developer.mozilla.org/en-US/docs/Learn_web_development/
+      Core/Scripting/A_first_splash
+    Ⅰn this article;
+     ・Introducing our "Number guessing game" example
+     ・Thinking like a programmer
+     ・The initial design brief
+     ・Initial setup
+     ・Adding variables to store our data
+     ・Functions
+     ・Text strings
+     ・Conditionals
+     ・Events
+     ・Finishing the game functionality
+     ・Loops
+     ・Summary  
+
+2026-09-14
+folder: "core_51_A first splash into JavaScript", 
+
+actions;
+1. Preparaton
+    copy folder from "core_50_What_is_JavaScript"
+                to   "core_51_A first splash into JavaScript"
+    
+2. edit
+2.34 index.html, style.css per ref 2. 
+ ・Introducing our "Number guessing game" example
+   => ex-50.4 working 
+
+MDN ref 2. path;
+Learn
+Core learning modules
+JavaScript
+JavaScript walkthrough
+
+
+所見: 使えるか？
