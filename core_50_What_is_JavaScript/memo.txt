@@ -1,0 +1,71 @@
+ref 1. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core
+        /Scripting/What_is_JavaScript
+    In this article;
+     ・A high-level definition
+     ・So what can it really do?
+     ・What is JavaScript doing on your page?
+     ・How do you add JavaScript to your page?
+     ・Comments
+     ・Summary
+
+2026-09-14
+folder: "core_50_What_is_JavaScript", 
+
+actions;
+1. Preparaton
+    creat folder "core_50_What_is_JavaScript"
+    
+2. edit
+2.33 index.html, style.css per ref 1. 
+ ・A high-level definition
+   => ex-50.1 done! 
+      integral browser in VScode is not possible to 
+      show prompt()
+   => ex-50.2 done!
+    注: Please don't do this,
+  => ex-50.3 working
+ask Gemini:
+Q1/Q2:
+おはよう Geminiさん, index.html ex-50.2の 
+Inline JavaScript handlersは良くないようです。
+Q1:
+  onclick="createParagraph()" attributeを
+  index.js内で記述するには？　
+Q2: function updateName()が共用できますか？
+
+A1:
+  HTML側の onclick 属性を削除し、JavaScript側で
+対象の要素を取得して addEventListener を使うのが
+標準的かつ最も推奨される方法です。
+HTML側: 
+  属性を削除し、要素を特定するための id や class など
+  を付与します。  
+  <button id="create-btn">Click me!</button>
+index.js側:
+  要素を取得してイベントリスナーを設定します。
+  const button = document.querySelector('#create-btn');
+  button.addEventListener('click', createParagraph);  
+Q1 well done!, closed.
+
+A2:
+はい、完全に共用（再利用）できます。
+JavaScriptで一度定義した関数は、複数の要素や
+イベントリスナーから呼び出すことが可能です。
+共用する例:
+// 関数の定義（1つだけ作成）
+function updateName() {
+  const name = prompt('名前を入力してください');
+  // 名前を変更する処理...
+}
+
+// 複数のボタン取得
+const button1 = document.querySelector('#btn-1');
+const button2 = document.querySelector('#btn-2');
+
+// それぞれのボタンをクリックした際におなじ関数を実行
+button1.addEventListener('click', updateName);
+button2.addEventListener('click', updateName);
+
+
+
+所見: 使える!!

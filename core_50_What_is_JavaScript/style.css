@@ -1,0 +1,56 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_50_What_is_JavaScript\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+body {
+    width:280px;
+}
+
+/* ex-50.1 */
+#btn1 {
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid rgb(200 200 0 / 60%);
+    background-color: rgb(0 217 217 / 60%);
+    color: rgb(100 0 0 / 100%);
+    box-shadow: 1px 1px 2px rgb(0 0 200 / 40%);
+    border-radius: 10px;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+/* ex-50.3 */
+#btn3 {
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid rgb(200 200 0 / 60%);
+    background-color: rgba(243, 170, 215, 0.6);
+    color: rgb(100 0 0 / 100%);
+    box-shadow: 1px 1px 2px rgb(0 0 200 / 40%);
+    border-radius: 10px;
+    padding: 3px 10px;
+    cursor: pointer;
+}

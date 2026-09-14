@@ -1,0 +1,41 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_50_What_is_JavaScript\index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <title>JS What is JavaScript?</title>
+</head>
+
+<body>
+  <a>"ex-50.1, What is JavaScript?<br>
+    ・A high-level definition<br></a>
+    <button id="btn1">Player 1: who?</button>
+  <hr class="hr1">
+
+  <a>"ex-50.2, What is JavaScript?<br>
+    ・Inline JavaScript handlers<br></a>
+    <button onclick="createParagraph()">Click me!</button> 
+    <!--inline onclick handler to make the function run when the button is pressed.
+        Please don't do this, however. It is bad practice to pollute your HTML 
+        with JavaScript, and it is inefficient — you'd have to include the 
+        onclick="createParagraph()" attribute on every button you want the 
+        JavaScript to apply to.
+      see ex-50.3 following:
+    -->
+  <hr class="hr1">
+
+  <a>"ex-50.3, What is JavaScript?<br>
+    ・NOT Inline JavaScript handlers<br></a>
+    <button id="btn3">Click me!</button>
+  <hr class="hr1">
+
+  <hr>
+  <script src="index.js" defer></script>
+</body>
+</html>
+
