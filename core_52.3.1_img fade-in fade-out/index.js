@@ -1,4 +1,4 @@
-/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.3_img fade-in fade-out\index.js */
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.3.1_img fade-in fade-out\index.js */
 
 /* ex-51.1 */
 function fadeIn() {

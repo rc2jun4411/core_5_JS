@@ -2,12 +2,12 @@ ref 5. https://terakoya.sejuku.net/question/detail/42663
 
 
 2026-09-15
-folder: "core_52.3_img fade-in fade-out", 
+folder: "core_52.3.1_img fade-in fade-out", 
 
 actions;
 1. Preparaton
     copy folder from "core_52.2.3_Variables blink"
-                to   "core_52.3_img fade-in fade-out"
+                to   "core_52.3.1_img fade-in fade-out"
 2. edit
 2.38 index.html, style.css per ref 5. 
   => ex-51.1 done!

@@ -1,0 +1,49 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.3.1_img fade-in fade-out\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    width: 80%;
+    max-width: 480px;
+    min-width: 240px;
+    margin: 0 auto;
+}
+
+/* ex-51.1 */
+.fade {
+    opacity: 0;
+    transition: opacity 3s;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}

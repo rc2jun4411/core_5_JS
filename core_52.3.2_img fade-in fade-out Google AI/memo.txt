@@ -1,0 +1,123 @@
+ref 6. Google 検索 Gemini
+Q:
+C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.3_img fade-in fade-out\index.html
+A:　
+AI による概要:        
+HTML、CSS、JavaScriptを使用して、画像のフェードイン・フェードアウト（切り替え）
+を実装するコードの基本テンプレートを提供します。
+ファイル「index.html」を以下のように書き換えて、ブラウザで開いてみてください。
+実装コード（index.html）:
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Fade-In Fade-Out</title>
+    <style>
+        /* 画像を表示するコンテナの基本設定 */
+        .image-container {
+            position: relative;
+            width: 500px;
+            height: 350px;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 2px solid #ccc;
+        }
+
+        /* 画像を重ねて配置し、初期状態を透明（opacity: 0）にする */
+        .fade-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* 1.5秒かけてフェード */
+        }
+
+        /* このクラスがついた画像が表示される */
+        .fade-img.active {
+            opacity: 1;
+        }
+
+        /* ボタンのスタイル */
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 画像コンテナ -->
+    <div class="image-container">
+        <!-- 任意の画像URLまたはローカルパスに置き換えてください -->
+        <img src="https://picsum.photos" alt="Image 1" class="fade-img active">
+        <img src="https://picsum.photos" alt="Image 2" class="fade-img">
+        <img src="https://picsum.photos" alt="Image 3" class="fade-img">
+    </div>
+
+    <!-- 切り替えボタン -->
+    <div class="controls">
+        <button id="nextBtn">次の画像へ</button>
+    </div>
+
+    <script>
+        // すべての画像要素とボタンを取得
+        const images = document.querySelectorAll('.fade-img');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function changeImage() {
+            // 現在表示されている画像から 'active' クラスを消す（フェードアウト）
+            images[currentIndex].classList.remove('active');
+
+            // 次の画像のインデックスを計算（最後の次は最初に戻る）
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // 次の画像に 'active' クラスを付与（フェードイン）
+            images[currentIndex].classList.add('active');
+        }
+
+        // ボタンがクリックされたときに実行
+        nextBtn.addEventListener('click', changeImage);
+
+        // 自動で切り替えたい場合は、以下のコメントアウトを解除してください
+        // setInterval(changeImage, 4000); // 4秒ごとに自動切り替え
+    </script>
+
+</body>
+</html>
+
+💡 コードのポイント:
+CSSの opacity と transition: 画像の透明度（opacity）を 0 から 1 
+へ変化させ、それを transition でスムーズにアニメーションさせています。
+JSの classList 操作: active というクラスを付け外しするだけで、
+フェードインとフェードアウトが連動して実行されます。
+
+もし自動でスライドショーにしたい場合や、前の画像に戻るボタンを追加したい
+など、具体的な要望があれば教えてください。
+どのようにコードを修正・拡張するか詳しくお答えします。
+
+
+2026-09-15
+folder: "core_52.3.2_img fade-in fade-out Google AI", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.3.1_img fade-in fade-out"
+                to   "core_52.3.2_img fade-in fade-out Google AI"
+2. edit
+2.38 index.html, style.css per ref 6. 
+  => ex-51.2 working done!
+
+
+ref 6. path;
+
+所見: 使えるか？

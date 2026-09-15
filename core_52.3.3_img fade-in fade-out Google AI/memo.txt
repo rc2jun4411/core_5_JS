@@ -1,0 +1,81 @@
+ref 6. Google 検索 Gemini
+html inlineを　style to style.css, script to indx.js　に
+    <style>
+        /* 画像を表示するコンテナの基本設定 */
+        .image-container {
+            position: relative;
+            width: 500px;
+            height: 350px;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 2px solid #ccc;
+        }
+
+        /* 画像を重ねて配置し、初期状態を透明（opacity: 0）にする */
+        .fade-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* 1.5秒かけてフェード */
+        }
+
+        /* このクラスがついた画像が表示される */
+        .fade-img.active {
+            opacity: 1;
+        }
+
+        /* ボタンのスタイル */
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // すべての画像要素とボタンを取得
+        const images = document.querySelectorAll('.fade-img');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function changeImage() {
+            // 現在表示されている画像から 'active' クラスを消す（フェードアウト）
+            images[currentIndex].classList.remove('active');
+
+            // 次の画像のインデックスを計算（最後の次は最初に戻る）
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // 次の画像に 'active' クラスを付与（フェードイン）
+            images[currentIndex].classList.add('active');
+        }
+
+        // ボタンがクリックされたときに実行
+        nextBtn.addEventListener('click', changeImage);
+
+        // 自動で切り替えたい場合は、以下のコメントアウトを解除してください
+        // setInterval(changeImage, 4000); // 4秒ごとに自動切り替え
+    </script>
+
+2026-09-15
+folder: "core_52.3.3_img fade-in fade-out Google AI", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.3.2_img fade-in fade-out Google AI"
+                to   "core_52.3.3_img fade-in fade-out Google AI"
+2. edit
+2.38 index.html, style.css per ref 6. 
+  => ex-51.3 done!
+
+
+ref 6. path;
+
+所見: 使えるか？

@@ -1,0 +1,105 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.3.2_img fade-in fade-out Google AI\index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <title>img fade-in fade-out, Google AI</title>
+    <style>
+      /* 画像を表示するコンテナの基本設定 */
+      .image-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 5px auto;
+        border: 2px solid #ccc;
+      }
+    
+      /* 画像を重ねて配置し、初期状態を透明（opacity: 0）にする */
+      .fade-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        /* 1.5秒かけてフェード */
+      }
+    
+      /* このクラスがついた画像が表示される */
+      .fade-img.active {
+        opacity: 1;
+      }
+    
+      /* ボタンのスタイル */
+      .controls {
+        text-align: center;
+        margin-top: 20px;
+      }
+    
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+</head>
+
+<body>
+  <a>"ex-51.2", img fade-in fade-out<br>
+    画像(jpg, png ...)を fade-in, fade-out, Google AI<br></a>
+
+    <!-- 画像コンテナ -->
+    <div class="image-container">
+      <!-- 任意の画像URLまたはローカルパスに置き換えてください -->
+      <img src="img/square1-half.jpg" alt="Image 1" class="fade-img active">
+      <img src="img/square2-half.jpg" alt="Image 2" class="fade-img">
+      <img src="img/square3-half.jpg" alt="Image 3" class="fade-img">
+      <img src="img/square4-half.jpg" alt="Image 4" class="fade-img">
+      <img src="img/square5-half.jpg" alt="Image 5" class="fade-img">
+      <img src="img/square6-half.jpg" alt="Image 6" class="fade-img">
+    </div>
+    
+    <!-- 切り替えボタン
+    <div class="controls">
+      <button id="nextBtn">次の画像へ</button>
+    </div> -->
+
+    <hr class="hr1">
+
+    <script>
+      // すべての画像要素とボタンを取得
+      const images = document.querySelectorAll('.fade-img');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+
+      function changeImage() {
+        // 現在表示されている画像から 'active' クラスを消す（フェードアウト）
+        images[currentIndex].classList.remove('active');
+
+        // 次の画像のインデックスを計算（最後の次は最初に戻る）
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // 次の画像に 'active' クラスを付与（フェードイン）
+        images[currentIndex].classList.add('active');
+      }
+
+      // ボタンがクリックされたときに実行
+      nextBtn.addEventListener('click', changeImage);
+
+      // 自動で切り替えたい場合は、以下のコメントアウトを解除してください
+      setInterval(changeImage, 4000); // 4秒ごとに自動切り替え
+    </script>
+
+  <hr>
+  <script src="index.js" defer></script>    
+</body>
+</html>
+
