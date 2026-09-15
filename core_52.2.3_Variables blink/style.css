@@ -1,0 +1,148 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.2.3_Variables blink\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.4 */
+html {
+    font-family: sans-serif;
+}
+
+body {
+    width: 80%;
+    max-width: 480px;
+    min-width: 240px;
+    margin: 0 auto;
+}
+
+/* ex-50.7, ① フワッとゆっくり点滅 — opacity と alternate */
+.bl-soft-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 40px;
+    background: #eef2ff;
+    border: 1px solid #a5b4fc;
+    animation: blSoftBlink 1s ease-in-out infinite alternate;
+    /* animation-direction: alternate で往復する @keyframes で 
+       opacity を 0→1 に変え、animation に infinite alternate 
+       を付けます。alternate があると再生方向が交互に反転し、
+       フェードインとフェードアウトが途切れなく続きます。*/
+}
+.bl-soft-dot {
+    color: #4f46e5;
+    font-size: 0.85rem;
+}
+.bl-soft-lbl {
+    color: #312e81;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+@keyframes blSoftBlink {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ex-50.8, ② チカチカと素早く点滅 — 短い duration と linear */
+.bl-fast-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 40px;
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    animation: blFastBlink 0.3s linear infinite;
+    /* linear と短い duration でチカチカ感を出す 
+       0.3s の短い周期と linear（等速）を組み合わせると、
+       急な点滅になります。
+       keyframes の 20% までに opacity: 1 へ達し、
+       残りの時間で暗くなるため、鋭いチカチカ感が出ます。*/
+}
+.bl-fast-icon {
+    color: #dc2626;
+    font-size: 0.75rem;
+}
+.bl-fast-lbl {
+    color: #991b1b;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+@keyframes blFastBlink {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ex-50.9 ③ デジタル点滅 — setInterval で visibility を切替 */
+.bl-dig-frame {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 8px;
+    background: #0f172a;
+    border: 1px solid #64748b;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.bl-dig-txt {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #4ade80;
+}
+
+.bl-dig-txt.is-off {
+    visibility: hidden;
+}
+
+/* ex-50.10 */
+.bl-spd-frame {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 8px;
+    background: #0f172a;
+    border: 1px solid #64748b;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.bl-spd-txt {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #4ade80;
+}
+
+.bl-spd-txt.is-off {
+    visibility: hidden;
+}
+
+.bl-spd-slider {
+    display: block;
+    width: 200px;
+    margin: 16px auto;
+    cursor: pointer;
+}

@@ -1,0 +1,66 @@
+ref 3. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
+      /Variables
+    In this article;
+     ・Tools you need
+     ・What is a variable?
+     ・Declaring a variable
+     ・Initializing a variable
+     ・A note about var
+     ・Updating a variable
+     ・Variable types
+     ・Dynamic typing
+     ・Constants in JavaScript
+     ・When to use const and when to use let
+     ・Summary    
+
+2026-09-14
+folder: "core_52.2.2_Variables blink text", 
+
+actions;
+1. Preparaton
+    copy folder from "core_51_A first splash into JavaScript"
+                to   "core_52.2.2_Variables blink text"
+2. edit
+2.36 index.html, style.css per ref 3. 
+ ・What is a variable?
+    => ex-50.5 done! 
+
+ask Google AI;
+Q;
+javascript blink text
+A;
+AI による概要;
+ JavaScriptの String.prototype.blink() メソッドや古い 
+ <blink> タグは完全に非推奨であり、現代のブラウザでは動作しません。
+ テキストを点滅させるには、CSSのanimation（@keyframes） 
+ または JavaScriptでのopacity操作 を使用します。 
+ [1] (https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/blink), 
+ [2] (https://web-designer.cman.jp/html_ref/abc_list/blink/), 
+ [3] (https://noveblo.com/javascript-css-blink/)
+ 推奨されるCSSでの点滅方法もっとも簡単でパフォーマンスが良い方法は、
+ CSSのアニメーションを使用することです。
+ html
+ <style>
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.blink-text {
+  animation: blink 1s infinite;
+}
+</style>
+
+<span class="blink-text">点滅するテキスト</span>
+    => ex-50.6 done! folder: "core_52.2_Variables blink text"
+
+HTML -> CSS
+
+
+MDN ref 3. path;
+Learn
+Core learning modules
+JavaScript
+Variables
+
+所見: 使えるか？

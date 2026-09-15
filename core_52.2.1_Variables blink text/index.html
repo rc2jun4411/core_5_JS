@@ -1,4 +1,4 @@
-<!-- C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52_Variables\index.html -->
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.2.1_Variables blink text\index.html -->
 <!doctype html>
 <html lang="en">
 
@@ -12,11 +12,24 @@
 </head>
 
 <body>
-  <a>"ex-50.5, JavaScript Variables<br>
+  <a>"ex-50.6, JavaScript Variables<br>
     ・What is a variable?<br> Variable example:<br>
-  incremental counter</a>
+  incremental counter + text blink</a>
     <button id="button_A">Press me</button>
     <h3 id="heading_A"></h3>
+
+  <style>
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .blink-text {
+      animation: blink 1s infinite;
+    }
+  </style>
+  <span class="blink-text">点滅するテキスト</span>  
+
   <hr class="hr1">
 
   <hr>

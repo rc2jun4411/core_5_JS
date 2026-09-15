@@ -1,0 +1,25 @@
+ref 5. https://terakoya.sejuku.net/question/detail/42663
+    
+
+2026-09-15
+folder: "core_52.2.3_Variables blink", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.2.2_Variables blink text"
+                to   "core_52.2.3_Variables blink"
+2. edit
+2.37 index.html, style.css per ref 4. 
+  => ex-50.7 done! 
+  => ex-50.8 done! 
+  => ex-50.9 done!
+  => ex-50.10 done!
+
+
+
+ref 4. path;
+ホーム
+プログラミング
+HTML/CSS/JavaScript
+
+所見: 使えるか？

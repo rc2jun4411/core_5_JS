@@ -2,5 +2,51 @@ since 2026-09-14
 
 actions:
 1. GitHub "core_5_JS" JavaScript
-2. creat subfolder "core_50_What_is_JavaScript"
-3. creat subfolder "core_51_A first splash into JavaScript"
+2. generate tree strings:
+. core_5_JS
+├── core_50_What_is_JavaScript
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   ├── prompt() in chrome.png
+│   └── style.css
+├── core_51_A first splash into JavaScript
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+├── core_52.1_Variables
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+├── core_52.2.1_Variables blink text
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+├── core_52.2.2_Variables blink text
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+├── core_52.2.3_Variables blink
+│   ├── CSS_opacity_setInterval().png
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+├── core_52.3_img fade-in fade-out
+│   ├── CSS_opacity_setInterval().png
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── index.js
+│   ├── memo.txt
+│   └── style.css
+└── memo.txt(this file)

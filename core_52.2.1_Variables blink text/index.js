@@ -1,4 +1,4 @@
-/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52_Variables\index.js */
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.2.1_Variables blink text\index.js */
 
 /* ex-50.5,  */
 const buttonA = document.querySelector("#button_A");
@@ -24,3 +24,6 @@ buttonA.onclick = () => {
 //   headingA.textContent = `${count} clicks so far`;
 //   count += 1;
 // };
+
+/* ex-50.6 */
+// Google AI
