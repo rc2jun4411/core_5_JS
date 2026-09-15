@@ -37,7 +37,7 @@ body {
 /* ex-51.1 */
 .fade {
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 3s;
 }
 
 .fade-in {
