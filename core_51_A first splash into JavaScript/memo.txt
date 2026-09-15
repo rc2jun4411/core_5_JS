@@ -25,7 +25,7 @@ actions;
 2. edit
 2.34 index.html, style.css per ref 2. 
  ・Introducing our "Number guessing game" example
-   => ex-50.4 working 
+   => ex-50.4 done! 
 
 MDN ref 2. path;
 Learn
@@ -34,4 +34,4 @@ JavaScript
 JavaScript walkthrough
 
 
-所見: 使えるか？
+所見: 使える。

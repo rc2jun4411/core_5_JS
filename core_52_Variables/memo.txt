@@ -1,0 +1,53 @@
+ref 3. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
+      /Variables
+    In this article;
+     ・Tools you need
+     ・What is a variable?
+     ・Declaring a variable
+     ・Initializing a variable
+     ・A note about var
+     ・Updating a variable
+     ・Variable types
+     ・Dynamic typing
+     ・Constants in JavaScript
+     ・When to use const and when to use let
+     ・Summary    
+
+2026-09-14
+folder: "core_52_Variables", 
+
+actions;
+1. Preparaton
+    copy folder from "core_51_A first splash into JavaScript"
+                to   "core_52_Variables"
+2. edit
+2.35 index.html, style.css per ref 3. 
+ ・What is a variable?
+   1. Variable example
+    => ex-50.5 done! 
+ask Gemini,
+Q1:
+ JS; variable countを赤色に表示するcssは？
+
+A1:
+ JS;
+/* JS: wrap the count inside a <span> element */
+buttonA.onclick = () => {
+  buttonA.textContent = "Try again!";
+  headingA.innerHTML = `<span class="count-red">${count}</span> clicks so far`;
+  count += 1;
+}; 
+ CSS;
+/* CSS: style the span element */
+.count-red {
+  color: red;
+} 
+
+
+MDN ref 3. path;
+Learn
+Core learning modules
+JavaScript
+Variables
+
+所見: 使えるか？
