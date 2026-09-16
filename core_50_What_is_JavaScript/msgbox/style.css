@@ -1,0 +1,30 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_50_What_is_JavaScript\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+body {
+    width:280px;
+}
+
+/* ex-50.4 */

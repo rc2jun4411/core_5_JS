@@ -1,0 +1,63 @@
+ref 1.1 https://developer.mozilla.org/ja/docs/Web/API/Window/alert 
+        Window: alert() method
+ref 1.2 https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+        Window: prompt() method
+
+2026-09-16
+folder: "core_50_What_is_JavaScript", "msgbox" 
+
+actions;
+1. Preparaton
+    creat folder "core_50_What_is_JavaScript", "msgbox" 
+    
+2. edit
+2.40 index.html, style.css per ref 1.1
+ ・google 検索
+Q1:
+javascript msgbox
+
+A1:
+AI による概要:
+  JavaScriptでは、メッセージボックス（ポップアップダイアログ）を
+表示するために alert() 関数を使います。
+
+アラートボックス:
+  アラートボックスの基本メッセージを表示するには、コードに 
+alert("表示したい文字"); と書きます。
+javascript:
+alert("こんにちは！");
+ユーザーが「OK」ボタンを押すまで、次の動作は止まります。
+その他のダイアログ用途に合わせて、別の種類のボックスも使えます。
+
+確認ボックス (confirm): 
+ 「OK」と「キャンセル」を選べます。
+javascript:
+const res = confirm("続けますか？");
+
+入力ボックス (prompt):
+  文字を入力できます。
+javascript:
+const name = com = prompt("お名前は？");  <= error ????
+
+詳しい仕様やブラウザーごとの動きは、MDN Web Docsのwindow.alert解説を確認してください。
+
+
+  => ex-50.4, alert() done!
+    see ref 1.1
+  => ex-50.5, confirm() done!
+  => ex-50.6, prompt() working
+    see ref 1.2
+
+ref 1.1 path:
+Web
+Web APIs
+Window
+alert()  
+
+ref 1.2 path:
+Web
+Web APIs
+Window
+prompt()
+
+所見: 使えるか？
