@@ -11,7 +11,9 @@ ref 3. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scrip
      ・Dynamic typing
      ・Constants in JavaScript
      ・When to use const and when to use let
-     ・Summary    
+     ・Summary
+         
+ref 3.1 https://mimo.org/glossary/html/space
 
 2026-09-14
 folder: "core_52.1_Variables", 
@@ -24,7 +26,7 @@ actions;
 2.35 index.html, style.css per ref 3. 
  ・What is a variable?
    1. Variable example
-    => ex-50.5 done! 
+    => ex-50.9 done! 
 ask Gemini,
 Q1:
  JS; variable countを赤色に表示するcssは？
@@ -42,6 +44,96 @@ buttonA.onclick = () => {
 .count-red {
   color: red;
 } 
+
+ ・Declaring a variable => ex-50.10 working
+ask Gemini,
+Q1:
+JS; console.log(myName2);でconsoleに
+A1:
+console.log() はデベロッパーツール（コンソール）に出力する
+ための機能です。ブラウザの画面（HTML上）に表示したい場合は、
+JavaScriptでHTML要素を取得してその中身を書き換えるか、
+新しい要素を追加します。
+  代表的な方法として以下の2つがあります。
+
+1. 既存のHTML要素（<div> や <p> など）に出力する
+HTML側に受け皿となる要素をあらかじめ用意しておき、
+JavaScriptでその要素の textContent を書き換えます。
+HTML:
+<p id="output"></p>
+JavaScript:
+const myName2 = "Taro";
+// idが"output"の要素を取得してテキストを代入
+document.getElementById("output").textContent = myName2;
+
+2. 新しく要素を作成して画面に追加する
+HTML側にあらかじめ要素を用意せず、JavaScript側で動的に
+要素を作成して画面（<body> など）に追加します。
+JavaScript:
+const myName2 = "Taro";
+// <p>要素を新しく作成
+const newParagraph = document.createElement("p");
+// テキストを設定
+newParagraph.textContent = myName2;
+// body要素の中に追加
+document.body.appendChild(newParagraph);
+
+ワンポイント:
+textContent の代わりに innerText や innerHTML を
+使うこともできますが、単純な文字列を出力する場合は
+安全で処理の速い textContent を使うのが一般的です。
+
+action:
+2. 新しく要素を作成して画面に追加する を反映、VScode integrated
+ browserに表示Ok、<body></body>の領域を下に外れた。
+
+ask Gemini,
+Q2:
+ html <body>内で<hr class="hr1">の前に表示するには？
+A2:
+ <hr class="hr1"> の手前（直前）に要素を挿入したい場合は、
+ insertBefore() メソッドを使用します。
+
+コード例:
+HTML:
+<body>
+  <!-- 他の要素など -->
+
+  <hr class="hr1">
+</body>
+
+JavaScript:
+const myName2 = "Taro";
+// 1. 新しい <p> 要素を作成
+const newParagraph = document.createElement("p");
+newParagraph.textContent = myName2;
+// 2. 挿入する基準となる <hr class="hr1"> 要素を取得
+const targetHr = document.querySelector("hr.hr1");
+// 3. 親要素(body)の中で、targetHrの直前に新要素を挿入
+targetHr.parentNode.insertBefore(newParagraph, targetHr);
+
+解説:
+document.querySelector("hr.hr1"): class="hr1" を持つ 
+<hr> 要素を特定して取得します。
+
+親要素.insertBefore(追加したい要素, 基準となる要素): 
+基準となる要素の直前に新しい要素を配置します。
+targetHr.parentNode（または document.body）に対して
+実行します。
+
+// 2. 挿入する基準となる <hr class="hr1"> 
+<body></body>内にhr1が2か所あるので、識別のため、ex-50.10内に
+hr1が2か所あるので、識別のため、hr2に変更(CSSも)
+
+ ・Declaring a variable => ex-50.10 done!
+
+ ・Variable types　=> ex-50.11 working
+    ・numbers
+    ・strings
+    ・booleans
+    ・arrays
+    ・objects
+
 
 
 MDN ref 3. path;

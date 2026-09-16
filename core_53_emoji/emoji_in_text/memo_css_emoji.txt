@@ -1,0 +1,70 @@
+ask google AI @Chrome
+Q1:
+css emoji
+A1:
+AI による概要:
+ CSSで絵文字を扱うには、
+HTMLのテキストや擬似要素内に直接絵文字を入力するか、
+最新の font-variant-emoji プロパティで表示スタイルを制御します。 
+
+[1] (https://developer.mozilla.org/ja/docs/Web/CSS/Reference
+ /Properties/font-variant-emoji)
+
+絵文字の基本実装HTMLや
+ CSSのcontentプロパティにそのまま絵文字を記述できます。
+
+CSS:
+.element::before {
+  content: "😊";
+}
+
+
+文字コード（16進数）で指定したい場合は、
+ HTMLの絵文字 文字コード表などを参考に \1F60A のように記述することも
+可能です。
+
+表示スタイルの制御:
+ (font-variant-emoji)絵文字をテキスト風（白黒など）にするか、
+カラーの絵文字として表示するかを切り替えるプロパティです。 
+
+[3] (https://developer.mozilla.org/ja/docs/Web/CSS/Reference
+ /Properties/font-variant-emoji)
+
+font-variant-emoji: text; （テキスト風に表示）
+font-variant-emoji: emoji; （絵文字風に表示）
+font-variant-emoji: normal; （既定値） 
+
+[4] (https://developer.mozilla.org/ja/docs/Web/CSS/Reference
+ /Properties/font-variant-emoji)
+
+外部の専用スタイルシートを利用したい場合は、
+Emoji CSSを使う方法もあります。
+詳細な仕組みはW3SchoolsのHTML Emojisも参考になります。 
+
+[5] (https://www.w3schools.com/html/html_emojis.asp), 
+[6] (https://emoji-css.afeld.me/)
+
+[1] Examples;
+Changing the way an emoji is displayed
+This example shows how you can render an emoji in its text or emoji presentation.
+
+HTML:
+<section class="emojis">
+  <div class="emoji">
+    <h2>text presentation</h2>
+    <div class="text-presentation">☎</div>
+  </div>
+  <div class="emoji">
+    <h2>emoji presentation</h2>
+    <div class="emoji-presentation">☎</div>
+  </div>
+</section>
+
+CSS:
+.text-presentation {
+  font-variant-emoji: text;
+}
+
+.emoji-presentation {
+  font-variant-emoji: emoji;
+}

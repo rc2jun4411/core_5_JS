@@ -1,0 +1,331 @@
+ref 1. https://mimo.org/glossary/html/space
+
+HTML +space;
+HTML Space: Syntax, Usage, and Examples
+Inserting space in HTML isn’t always as straightforward as it might seem. Web browsers collapse multiple spaces into a single space by default, so if you need extra spacing, you’ll need to use specific HTML space characters or codes.
+
+Understanding how to control blank space is crucial for effective web design and front end development, as proper spacing improves the readability and visual appeal of any web page. Whether working with a simple doctype declaration or complex layouts, knowing how to insert spaces effectively is essential for creating well-formatted content.
+
+Learn HTML on Mimo
+CAREER PATH
+Full-Stack Developer
+Become a full-stack developer. Learn HTML, CSS, JavaScript, and React as well as NodeJS, Express, and SQL
+Beginner friendly
+COURSE
+HTML
+Unlock Web Development: Start building web pages using the foundational markup language of the web
+Beginner friendly
+How to Add Space in HTML
+In HTML, the most common way to create extra space is with the non-breaking space character, written as &nbsp;. This stands for "non-breaking space," which prevents the browser from automatically breaking a line at that point.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>This&nbsp;&nbsp;sentence&nbsp;&nbsp;has&nbsp;&nbsp;extra&nbsp;&nbsp;spaces.</p>
+You can also use multiple &nbsp; entities in a row to add wider gaps. One &nbsp; creates one extra space beyond the normal space. For example:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>Hello,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;world!</p>
+Other methods for inserting space in HTML include using CSS. The margin, padding, and white-space properties allow for spacing control that’s not limited to text alone. You can specify spacing in pixels for precise control:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p style="margin-left: 40px;">This paragraph is indented.</p>
+You can also create invisible areas using div or span tags with defined width:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<span style="display: inline-block; width: 30px;"></span>
+When to Use Space in HTML
+There are several situations where you’ll want to intentionally add extra space in HTML. These HTML elements and HTML tags provide different ways to control spacing depending on your needs.
+
+Formatting Inline Content
+If you’re listing words, tags, or values inline and want them spaced out more than usual, HTML space characters can help maintain legibility.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>Price: $29.99&nbsp;&nbsp;Size: Medium&nbsp;&nbsp;Color: Red</p>
+Preventing Line Breaks Between Words
+The non-breaking space is also useful for keeping two words or elements together on the same line.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>Copyright&nbsp;2025</p>
+If you used a normal space and the words fell at the end of a line, the browser could break them apart. A non-breaking space avoids that.
+
+Creating Indentation or Gaps
+While CSS is often the better long-term solution, using the HTML space character can be a quick fix for indenting or manually adjusting layout.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>&nbsp;&nbsp;&nbsp;Indented paragraph using HTML spaces.</p>
+This method is common in HTML emails, plain-text simulations, or simple layout fixes.
+
+Working with Paragraph Elements
+When working with the paragraph tag (<p>), you can control spacing between paragraphs using CSS margins:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p style="margin-bottom: 20px;">First paragraph with extra bottom spacing.</p>
+<p>Second paragraph follows after the gap.</p>
+This approach provides better semantic structure than using multiple space entities.
+
+Examples of HTML Space Usage
+Here are a few examples that show how HTML space works in practice.
+
+Using Non-Breaking Space Between Elements
+If you want to insert fixed space between two inline elements:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<span>First Name:</span>&nbsp;&nbsp;<input type="text">
+This gives the label and input box a buffer, so they don’t sit too close together.
+
+Aligning Text in Lists or Menus
+Let’s say you're creating a list that doesn’t use CSS. You can add spacing manually using space HTML codes.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<ul>
+  <li>Item&nbsp;&nbsp;&nbsp;&nbsp;1</li>
+  <li>Item&nbsp;&nbsp;&nbsp;&nbsp;2</li>
+</ul>
+This isn’t scalable, but it works for short menus or static layouts.
+
+Inserting Space in HTML Without Entities
+To add visual spacing using CSS, you might write:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p style="letter-spacing: 5px;">Spaced Out</p>
+This increases the space between each letter. For word spacing, you can use:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p style="word-spacing: 20px;">Lots of space between words</p>
+Creating Empty Space in Layouts
+If you want to add an empty block between elements, one simple approach is using a div with a height set in CSS.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<div style="height: 50px;"></div>
+This method is useful when you're stacking content vertically and want a fixed gap between sections.
+
+Using Line Breaks for Vertical Spacing
+The br> tag creates a new line and can be used for simple vertical spacing:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+
+<p>First line of text.</p>
+<br>
+<p>Second line after a line break.</p>
+While this works for basic spacing, CSS margins provide better control for web design layouts.
+
+Learn More About Space in HTML
+HTML Code for Space: Quick Reference
+Here are some useful HTML codes for inserting space in HTML:
+
+&nbsp;: Non-breaking space (most common)
+&#32;: Unicode space character (standard space)
+&ensp;: En space (half the width of an em)
+&emsp;: Em space (about the width of a capital M)
+&thinsp;: Thin space (narrower than a regular space)
+Each of these characters gives you a different amount of spacing. Here's a demo:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>Word1&nbsp;Word2&nbsp;&ensp;Word3&nbsp;&emsp;Word4</p>
+This produces variable spacing between the words.
+
+Non Breaking Space HTML in Forms and Tables
+Non-breaking spaces can be used in tables to prevent cell content from breaking onto multiple lines.
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<td>First&nbsp;Name</td>
+This forces the cell to keep the two words on one line, keeping table headers or values tidy.
+
+Space HTML Code in Labels and Buttons
+In buttons and form fields, spacing can sometimes feel tight. Add spacing to labels using non-breaking space or inline styles:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<label for="name">Name:&nbsp;&nbsp;</label>
+<input id="name" type="text">
+Or, for more spacing control, use inline CSS:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<button style="padding-left: 10px; padding-right: 10px;">Click Me</button>
+How to Add Space in HTML with Line Breaks
+If you're looking to create vertical space between lines of content, adding blank lines with <br> is a fast but unstructured method:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p>First paragraph.</p>
+<br><br>
+<p>Second paragraph after two line breaks.</p>
+Though this works, CSS is better suited for controlling vertical spacing:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p style="margin-bottom: 30px;">First paragraph.</p>
+<p>Second paragraph.</p>
+Inserting Space in HTML with White-Space Control
+The white-space CSS property affects how space characters are rendered in HTML. By default, HTML collapses whitespace, but if you need to preserve spacing and line breaks, use:
+
+CSS
+
+Open in Mimo
+
+
+Copy Code
+
+pre {
+  white-space: pre;
+}
+This is useful for code samples or anything that requires strict formatting. The pre> tag is specifically designed for preformatted text:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<pre>
+Line 1
+    Line 2 (indented)
+        Line 3 (more indented)
+</pre>
+This preserves the exact spacing and layout.
+
+Dynamic Spacing with JavaScript
+In interactive front end development, you can control spacing dynamically using JavaScript:
+
+HTML
+
+Open in Mimo
+
+
+Copy Code
+
+<p id="dynamicSpacing">Text with adjustable spacing</p>
+<button onclick="addSpacing()">Add Spacing</button>
+
+<script>
+function addSpacing() {
+  const element = document.getElementById('dynamicSpacing');
+  element.style.letterSpacing = '3px';
+  element.style.wordSpacing = '10px';
+}
+</script>
+This JavaScript function allows users to adjust text spacing interactively, which is useful for accessibility features or customizable interfaces.
+
+Space in HTML and Accessibility
+Keep in mind that too many non-breaking spaces or empty elements can confuse screen readers or users navigating with a keyboard. Try to use semantic HTML and CSS for spacing whenever possible. If you're inserting empty space in HTML purely for layout, double-check that it doesn't hinder usability.
+
+Using HTML space properly is one of those small skills that make your markup cleaner and your layout more precise. Whether you're dealing with non breaking space HTML entities or trying to create an empty space in HTML layout, knowing the options gives you flexibility and control.
+
+Rely on &nbsp; for inline spacing, use CSS for layout adjustments, and be mindful of accessibility when spacing content. If you’ve ever wondered how to add space in HTML or which HTML space character to use, now you’ve got multiple answers—each one useful in the right situation.

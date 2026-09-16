@@ -1,0 +1,29 @@
+ref 1. https://developer.mozilla.org/en-US/docs/Web
+        /CSS/Reference/Properties/font-variant-emoji
+    In this article;
+     ・Syntax
+     ・Formal definition
+     ・Formal syntax
+     ・Accessibility
+     ・Examples
+
+2026-09-16, working
+folder: "core_5_JS", "core_53_emoji"
+
+actions;
+1. Preparaton
+    creat folder "core_53_emoji"
+
+2. edit
+2.40 index.html, style.css per ref 1.
+ ・Examples => ex-53.1 working
+
+
+MDN ref 1. path;
+Web
+CSS
+Reference
+Properties
+font-variant-emoji
+
+所見: 使えるか？
