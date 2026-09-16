@@ -16,7 +16,19 @@ actions;
 
 2. edit
 2.40 index.html, style.css per ref 1.
- ・Examples => ex-53.1 working
+ ・Examples => ex-53.1 done!
+ ・Gemini/google検索
+ Q1:
+ css emoji
+ A1:
+ 絵文字の基本実装HTMLや
+ CSSのcontentプロパティにそのまま
+ 絵文字を記述できます。
+CSS:
+.element::before {
+  content: "😊";
+}
+
 
 
 MDN ref 1. path;
@@ -26,4 +38,4 @@ Reference
 Properties
 font-variant-emoji
 
-所見: 使えるか？
+所見: 使える!!

@@ -94,3 +94,25 @@ let dog = { name: "Spot", breed: "Dalmatian" };
 // =check=
 console.log(dog); // { name: 'Spot', breed: 'Dalmatian' }
 
+/* ex-50.12,  */
+let myName3 = "Paul";
+
+myName3 = "Chris";
+
+const section = document.querySelector("#sect2");
+const para = document.createElement("p");
+para.textContent = myName3;
+section.appendChild(para);
+
+/* ex-50.13,  */
+let myName4 = "Default";
+myName4 = "Chris";
+let myAge4 = 42;
+
+const section4 = document.querySelector("#sect3");
+const para1 = document.createElement("p");
+const para2 = document.createElement("p");
+para1.textContent = myName4;
+para2.textContent = `In 20 years, I will be ${myAge4 + 20}`;
+section4.appendChild(para1);
+section4.appendChild(para2);

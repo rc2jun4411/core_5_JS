@@ -34,3 +34,10 @@ hr {
 .emoji-presentation {
     font-variant-emoji: emoji;
 }
+
+h2::before {
+    content: "😊";
+}
+h2::after {
+    content: "😊";
+}

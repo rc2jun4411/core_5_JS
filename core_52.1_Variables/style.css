@@ -76,6 +76,7 @@ body {
     top: -13px;
 }
 
+/* ex-50.11 */
 .hr3 {
     border: none;
     border-top: 3px double #333333;
@@ -94,3 +95,56 @@ body {
     position: relative;
     top: -13px;
 }
+
+/* ex-50.12 */
+.hr4 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr4::after {
+    background: white;
+    /* none 透明*/
+    content: "'💚'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    color: purple;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+/* ex-50.13 */
+.hr5 {
+    border:
+     none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr5::after {
+    background: white;
+    /* none 透明*/
+    content: "'💙'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
