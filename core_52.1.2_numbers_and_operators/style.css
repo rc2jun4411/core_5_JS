@@ -29,14 +29,23 @@ html {
     font-family: sans-serif;
 }
 
-/* body {
-    width: 50%;
-    max-width: 400px;
-    min-width: 240px;
-    margin: 0 auto;
-} */
+/* ex-50.21 */
+.hr2 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
 
-/* CSS: style the span element */
-/* .count-red {
-    color: red;
-} */
+.hr2::after {
+    background: white;
+    /* none 透明*/
+    content: "'🧡'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}

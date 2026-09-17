@@ -5,20 +5,7 @@
 const myInt = 5;
 const myFloat = 6.667;
 console.log(myInt, myFloat);
-
-// const buttonA = document.querySelector("#button_A");
 const headingA = document.querySelector("#heading_A");
-
-/* JS: wrap the count inside a <span> element */
-// buttonA.onclick = () => {
-//   buttonA.textContent = "Try again!";
-//   headingA.innerHTML = `<span class="count-red">${count}
-//                         </span> clicks so far`;
-//   count += 1;
-// };  
-
-// headingA.innerHTML = `myInt = ${myInt}`;
-// headingA.innerHTML = `myInt = ${typeof myInt}`;
 
 // Gemini, 「値（5）」と「型（number）」を両方表示させたい場合
 headingA.innerHTML = `myInt = ${myInt} (${typeof myInt})`;
@@ -29,3 +16,22 @@ headingA.innerHTML = `値: ${myInt}<br>型: ${typeof myInt}`;
 // Gemini, += を使って追記する場合（※上書きせずに後ろへ足す）
 headingA.innerHTML = `myInt = ${myInt}`;
 headingA.innerHTML += ` (${typeof myInt})`; // += で追記
+
+// 応用編
+headingA.innerHTML = `myFloat = ${myFloat}`;
+headingA.innerHTML += ` (${typeof myFloat})`; // += で追記
+
+headingA.innerHTML = `myInt = ${myInt},
+                    myFloat = ${myFloat}`;
+
+/* ex-50.21,  */
+// Useful Number methods;
+/* to round your number to a fixed number of decimal places, 
+use the toFixed() method. */
+const lotsOfDecimal = 1.7665849587;
+const twoDecimalPlaces = lotsOfDecimal.toFixed(2);
+console.log(lotsOfDecimal, twoDecimalPlaces);
+const headingB = document.querySelector("#heading_B");
+
+headingB.innerHTML = `lotsOfDecimal = ${lotsOfDecimal},
+                    twoDecimalPlaces = ${twoDecimalPlaces}`;

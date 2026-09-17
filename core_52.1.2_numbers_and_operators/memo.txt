@@ -28,7 +28,6 @@ actions;
  -Hexadecimal
 
  ・It's all numbers to me;
-
    => ex-50.20 done!
    HTML;
     1. ex-50.9 incremental counterをcopy
@@ -38,12 +37,38 @@ actions;
    JS;
     3. const buttonA = document.querySelector("#button_A"); を削除
        const headingA = document.querySelector("#heading_A"); はkeep
-
     4. buttonA.onclick = () => {} を削除
-
     5. headingA.innerHTML = `myInt = ${myInt}`; を追記
-
   表示確認 ok! see: ex-50.20 numbers and operators-3, rendering ok!.png
+
+　応用編:
+// Gemini, 「値（5）」と「型（number）」を両方表示させたい場合
+  JS;
+  headingA.innerHTML = `myInt = ${myInt} (${typeof myInt})`;
+
+// Gemini, 改行して表示したい場合
+  JS;
+  headingA.innerHTML = `値: ${myInt}<br>型: ${typeof myInt}`;
+
+// Gemini, += を使って追記する場合（※上書きせずに後ろへ足す）
+  JS;
+  headingA.innerHTML = `myInt = ${myInt}`;
+  headingA.innerHTML += ` (${typeof myInt})`; // += で追記
+
+// 応用編 JK
+  JS;
+  headingA.innerHTML = `myFloat = ${myFloat}`;
+  headingA.innerHTML += ` (${typeof myFloat})`; // += で追記
+  
+  JS;
+  headingA.innerHTML = `myInt = ${myInt},
+                    myFloat = ${myFloat}`;
+
+ ・Useful Number methods;
+   => ex-50.21 working
+
+
+
 
 MDN ref 4. path;
 Learn
@@ -51,4 +76,4 @@ Core learning modules
 JavaScript
 Numbers and operators
 
-所見: 使えるか？
+所見: 使える !!
