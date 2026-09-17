@@ -17,4 +17,15 @@ const headingA = document.querySelector("#heading_A");
 //   count += 1;
 // };  
 
+// headingA.innerHTML = `myInt = ${myInt}`;
+// headingA.innerHTML = `myInt = ${typeof myInt}`;
+
+// Gemini, 「値（5）」と「型（number）」を両方表示させたい場合
+headingA.innerHTML = `myInt = ${myInt} (${typeof myInt})`;
+
+// Gemini, 改行して表示したい場合
+headingA.innerHTML = `値: ${myInt}<br>型: ${typeof myInt}`;
+
+// Gemini, += を使って追記する場合（※上書きせずに後ろへ足す）
 headingA.innerHTML = `myInt = ${myInt}`;
+headingA.innerHTML += ` (${typeof myInt})`; // += で追記
