@@ -1,4 +1,4 @@
-/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.1_Variables\index.js */
+/* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.1.1_Variables\index.js */
 
 /* ex-50.9,  */
 const buttonA = document.querySelector("#button_A");

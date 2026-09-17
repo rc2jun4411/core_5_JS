@@ -23,12 +23,12 @@ ref 3.2 https://developer.mozilla.org/en-US/docs
      ・Variables 2 => ex-50.13
 
 2026-09-14
-folder: "core_52.1_Variables", 
+folder: "core_52.1.1_Variables", 
 
 actions;
 1. Preparaton
     copy folder from "core_51_A first splash into JavaScript"
-                to   "core_52.1_Variables"
+                to   "core_52.1.1_Variables"
 2. edit
 2.35 index.html, style.css per ref 3. 
  ・What is a variable?
