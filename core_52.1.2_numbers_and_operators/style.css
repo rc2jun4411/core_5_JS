@@ -23,12 +23,15 @@ hr {
     position: relative;
     top: -13px;
 }
-
-/* ex-50.20 */
 html {
     font-family: sans-serif;
 }
+h3 {
+    color: blue;
+    font-size:medium
+}
 
+/* ex-50.20 */
 /* ex-50.21 */
 .hr2 {
     border: none;
@@ -45,6 +48,114 @@ html {
     background: white;
     /* none 透明*/
     content: "'🧡'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.22 */
+.hr3 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+
+.hr3::after {
+    background: white;
+    /* none 透明*/
+    content: "'💛'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.23 */
+.hr4 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+
+.hr4::after {
+    background: white;
+    /* none 透明*/
+    content: "'💚'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.24 */
+.hr5 {
+    border:
+        none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+
+.hr5::after {
+    background: white;
+    /* none 透明*/
+    content: "'💙'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.25 Sizing a canvas */ 
+.hr6 {
+    border:
+        none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+
+.hr6::after {
+    background: white;
+    /* none 透明*/
+    content: "'🐸'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* ex-50.26 Comparison operetors */
+.hr7 {
+    border:
+        none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+
+.hr7::after {
+    background: white;
+    /* none 透明*/
+    content: "'?'";
     padding: 4px;
     position: relative;
     top: -13px;
