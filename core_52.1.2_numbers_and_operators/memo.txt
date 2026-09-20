@@ -65,7 +65,72 @@ actions;
                     myFloat = ${myFloat}`;
 
  ・Useful Number methods;
-   => ex-50.21 working
+   => ex-50.21 done!
+
+ ・Converting to number data types,
+    1. string to number, constructor Number()
+   => ex-50.22 done!
+  ref 4.1 https://developer.mozilla.org/en-US/docs/Web
+        /JavaScript/Reference
+        /Global_Objects/Number/Number 
+
+=Notes=
+文字列を数値型に型変換するには Number(), parseInt(), parseFloat()を使います。
+Number()は簡単に使えて便利ですが、数字以外を含む文字列を引数に指定するとNaNを
+返すので注意が必要です。
+
+parseInt()は文字列を整数に変換し、実数の場合は小数点以下を切り捨てます。
+また、第2引数で変換時の基数を指定することができ、省略した場合は10進数として
+変換します。基数が10の場合は引数に数字以外の文字が含まれていても無視します。
+
+parseFloat()は文字列を実数に変換します。引数に数字以外の文字が含まれている場合
+は無視します。
+
+Number('123');        // 123
+Number('123a');       // NaN
+parseInt('123', 10);  // 123（10進数の整数）
+parseInt('ff', 16);   // 255（16進数の整数）
+parseInt('2.8', 10);  // 2（小数点以下を切り捨てる）
+parseInt('123a', 10); // 123（数字以外は無視）
+parseFloat('2.8');    // 2.8（実数）
+parseFloat('123a');   // 123（数字以外は無視）
+
+=Notes=
+  ref 4.2 https://developer.mozilla.org/ja/docs/Web
+        /JavaScript/Reference
+        /Global_Objects/Number/toString
+      In this article;
+       ・Try it
+       ・Syntax
+       ・Description
+       ・Examples
+  ・Try it     
+   Using toString() method.    
+   => ex-50.23 done!
+
+ ・Increment and decrement operators,
+    increment (++) and decrement (--) operators
+    Assignment operators
+   => ex-50.24 done! no rendering.
+
+ ・Sizing a canvas box
+  ref 4.3 https://developer.mozilla.org/en-US/docs
+        /Web/API/Canvas_API
+   => ex-50.25 done!
+
+ ・Comparison operators
+    Operator	Name
+    ===       Strict equality     Tests whether the 
+                                  left and right values are 
+                                  identical to one another
+    !==       Strict-non-equality
+    <         Less than
+    >         Greater than
+    <=        Less than or equal to
+    >=        Greater than or equal to
+
+  quick example:
+  => ex-50.26 working
 
 
 
@@ -75,5 +140,6 @@ Learn
 Core learning modules
 JavaScript
 Numbers and operators
+
 
 所見: 使える !!
