@@ -1,6 +1,7 @@
 /* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.1.1_Variables\index.js */
 
 /* ex-50.9,  */
+/* ・What is a variable? */
 const buttonA = document.querySelector("#button_A");
 const headingA = document.querySelector("#heading_A");
 
@@ -25,7 +26,9 @@ buttonA.onclick = () => {
 //   count += 1;
 // };
 
+
 /* ex-50.10,  */
+/* ・Declaring variable */
 let myName;
 let myAge;
 
@@ -68,7 +71,9 @@ const targetHr = document.querySelector("hr.hr2");
 // 3. 親要素(body)の中で、targetHrの直前に新要素を挿入
 targetHr.parentNode.insertBefore(newParagraph, targetHr);
 
+
 /* ex-50.11,  */
+/* ・Variable types */
 // Numbers
 let myAge11 = 17;
 
@@ -94,7 +99,9 @@ let dog = { name: "Spot", breed: "Dalmatian" };
 // =check=
 console.log(dog); // { name: 'Spot', breed: 'Dalmatian' }
 
+
 /* ex-50.12,  */
+/* Test your skills: Variables, ・Variable 1 */
 let myName3 = "Paul";
 
 myName3 = "Chris";
@@ -104,7 +111,9 @@ const para = document.createElement("p");
 para.textContent = myName3;
 section.appendChild(para);
 
+
 /* ex-50.13,  */
+/* Test your skills: Variables, ・Variable 2*/
 let myName4 = "Default";
 myName4 = "Chris";
 let myAge4 = 42;

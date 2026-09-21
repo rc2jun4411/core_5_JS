@@ -30,6 +30,10 @@ h3 {
     color: blue;
     font-size:medium
 }
+#my-canvas {
+    border: 1px solid black;
+    background-color: lightgray;
+}
 
 /* ex-50.20 */
 /* ex-50.21 */
@@ -159,4 +163,23 @@ h3 {
     padding: 4px;
     position: relative;
     top: -13px;
+}
+#p1 {
+    color: red;
+}
+.div1 {
+    background-color: lightblue; /* divの内側をベタ塗り */
+    border: 1px solid #000000;   /* divの外周を幅1pxの十戦で囲う */
+    border-radius: 1.0rem; /* <divの四隅をr取り*/
+    
+    border: 0.4rem outset pink; /* divの内縁に幅0.5remで飛び出してるように見せる縁取り*/
+    
+    outline: 0.5rem solid khaki; /* divの外縁0.5rem外側に、外周をカーキ色 */
+    outline-offset: 0.5rem;
+
+    box-shadow: 0 0 0 0.3rem rgb(6, 94, 129); /* divの外縁に影つけ */
+
+    /* font: bold 1rem sans-serif; html {}　とダブり*/
+    margin: 1rem;
+    padding: 1rem;
 }

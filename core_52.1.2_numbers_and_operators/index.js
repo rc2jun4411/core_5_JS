@@ -1,7 +1,8 @@
 /* C:\Users\rc2ju\OneDrive\Documents\core_5_JS\core_52.1.2_numbers and operators\index.js */
 
 /* ex-50.20,  */
-// It's all numbers to me;
+// ・Everybody loves math
+// =It's all numbers to me;
 const myInt = 5;
 const myFloat = 6.667;
 console.log(myInt, myFloat);
@@ -24,8 +25,9 @@ headingA.innerHTML += ` (${typeof myFloat})`; // += で追記
 headingA.innerHTML = `myInt = ${myInt},
                     myFloat = ${myFloat}`;
 
+
 /* ex-50.21,  */
-// Useful Number methods;
+// =Useful Number methods;
 /* to round your number to a fixed number of decimal places, 
 use the toFixed() method. */
 const lotsOfDecimal = 1.7665849587;
@@ -36,8 +38,9 @@ const headingB = document.querySelector("#heading_B");
 headingB.innerHTML = `lotsOfDecimal = ${lotsOfDecimal},
                     twoDecimalPlaces = ${twoDecimalPlaces}`;
 
+
 /* ex-50.22, */
-// Converting to number data types;
+// =Converting to number data types;
 // 
 let myNumber = "74";
 myNumber = Number(myNumber) + 3;
@@ -47,8 +50,7 @@ headingC.innerHTML = `myNumber = ${myNumber}, variable type: ${typeof myNumber}`
 
 
 /* ex-50.23, */
-// Converting to number data types;
-
+// =Converting to number data types;
 // Number.prototype.toString(), Try it, number to string, ref 4.2
 let hex1 = hexColor(233);
 let hex2 = hexColor(11);
@@ -91,7 +93,7 @@ headingD2.innerHTML = `count1 = ${count1}, variable type: ${typeof count1.toStri
 
 
 /* ex-50.24, */
-// 1. Increment and decrement operators;
+// ・Increment and decrement operators;
 //    using the increment (++) and decrement (--) operators. 
 let num1 = 4;
 const headingE = document.querySelector("#heading_E");
@@ -103,7 +105,7 @@ let num2 = 6;
 num2--;
 headingE.innerHTML = ` decrement (--) = ${num2}, variable type: ${typeof num2}`;
 
-// 2. Assignment operators
+// ・Assignment operators
 /*  "+="  Adds, the value on the right to the variable value 
         on the left, then returns the new variable value
 
@@ -118,7 +120,7 @@ x2 *= y2;   // x2 now contains the value 12
 
 
 /* ex-50.25, */
-// Sizing a canvas box
+// ・Sizing a canvas box
 const canvas = document.getElementById("my-canvas");
 const para = document.querySelector("p");
 const ctx = canvas.getContext("2d");
@@ -130,12 +132,13 @@ let y3 = 50;
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 ctx.fillStyle = "green";
 ctx.fillRect(10, 10, x3, y3);
-para.textContent = `The rectangle is ${x3}px wide and ${y3}px high.`;
+para.textContent = `The rectangle/box is ${x3}px wide and ${y3}px high.`;
+
 
 /* ex-50.26, */
-// Comparison operators
+// ・Comparison operators
 const btn = document.querySelector("button");
-const txt = document.querySelector("p");
+const txt = document.querySelector("#p1");
 
 btn.addEventListener("click", updateBtn);
 
