@@ -1,0 +1,35 @@
+ref 7. https://developer.mozilla.org/en-US/docs
+       /Learn_web_development/Core/Scripting/Useful_string_methods
+    In this article;
+     ・Strings as objects, no coding
+     ・Finding the length of a string
+     ・Retrieving a specific string character
+     ・Testing if a string contains a substring
+     ・Finding the position of a substring in a string
+     ・Extracting a substring from a string
+     ・Changing case
+     ・Updating parts of a string
+     ・Learning challenges
+     ・Summary
+
+2026-09-22
+folder: "core_52.1.5_Useful string methods", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.4_Strings"
+                to   "core_52.1.5_Useful string methods"
+2. edit
+2.38 index.html, style.css per ref 7. 
+・Finding the length of a string
+  => ex-50.29 working
+
+・   
+
+MDN ref 7. path;
+Learn
+Core learning modules
+JavaScript
+String methods
+
+所見: 使える ?

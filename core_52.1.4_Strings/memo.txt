@@ -1,0 +1,33 @@
+ref 6. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Strings
+    In this article;
+     ・The power of words, pass coding
+     ・Declaring strings
+     ・Embedding JavaScript
+     ・Multiline strings
+     ・Including quotes in strings
+     ・Numbers vs. strings
+     ・Summary
+
+2026-09-22
+folder: "core_52.1.4_Strings", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.3_test-math"
+                to   "core_52.1.4_Strings"
+2. edit
+2.37 index.html, style.css per ref 6. 
+・Declaring strings, 
+  Single quotes, double quotes, and backticks
+  => ex-50.28.1 done! 
+  => ex-50.28.2 done!
+  => ex-50.28.3 done!
+
+
+MDN ref 6. path;
+Learn
+Core learning modules
+JavaScript
+Strings
+
+所見: 使える ?

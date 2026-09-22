@@ -1,0 +1,88 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.4_Strings\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+html {
+    font-family: sans-serif;
+}
+
+/* ex-50.28.2, */
+.div1 {
+    background-color: lightblue;
+    /* divの内側をベタ塗り */
+    border: 1px solid #000000;
+    /* divの外周を幅1pxの十戦で囲う */
+    border-radius: 1.0rem;
+    /* <divの四隅をr取り*/
+
+    border: 0.4rem outset pink;
+    /* divの内縁に幅0.5remで飛び出してるように見せる縁取り*/
+
+    outline: 0.5rem solid khaki;
+    /* divの外縁0.5rem外側に、外周をカーキ色 */
+    outline-offset: 0.5rem;
+
+    box-shadow: 0 0 0 0.3rem rgb(6, 94, 129);
+    /* divの外縁に影つけ */
+
+    /* font: bold 1rem sans-serif; html {}　とダブり*/
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.div2 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightblue;
+}
+.div3 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightgoldenrodyellow;
+}
+.div4 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightpink;
+}
+.div5 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightgreen;
+}
+.div6 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightcyan;
+}
+.div7 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightslategray;
+}
+.div8 {
+    max-width: 320px;
+    min-width: 200px;
+    background-color: lightsalmon ;
+}
