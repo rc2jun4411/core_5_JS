@@ -130,7 +130,7 @@ parseFloat('123a');   // 123（数字以外は無視）
     >=        Greater than or equal to
 
   quick example:
-  => ex-50.26 working
+  => ex-50.26 done!
 
 
 

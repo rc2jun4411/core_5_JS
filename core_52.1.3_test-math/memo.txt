@@ -1,0 +1,29 @@
+ref 5. https://developer.mozilla.org/en-US/docs
+      /Learn_web_development/Core/Scripting/Math
+    In this article;
+     ・Math 1
+     ・Math 2
+     ・Math 3
+         
+2026-09-22
+folder: "core_52.1.3_test-math", 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.2_numbers and operators"
+                to   "core_52.1.3_test-math"
+2. edit
+2.36 index.html, style.css per ref 5. 
+・Math 1
+  => ex-50.27.1 done! 
+  => ex-50.27.2 done!
+  => ex-50.27.3 done!
+
+MDN ref 5. path;
+Learn
+Core learning modules
+JavaScript
+Test: JavaScript tests index
+Test: Math
+
+所見: 使える ?

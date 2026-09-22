@@ -1,0 +1,36 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.3_test-math\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+html {
+    font-family: sans-serif;
+}
+
+/* ex-50.27.1, Test-Math 1
+   ex-50.27.2, Test-Math 2
+   ex-50.27.3, Test-Math 3 */
+p {
+    color: purple;
+    margin: 0.5em 0;
+}

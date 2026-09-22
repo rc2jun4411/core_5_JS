@@ -23,7 +23,7 @@ actions;
 2. edit
 2.36 index.html, style.css per ref 3. 
  ・What is a variable?
-    => ex-50.5 done! 
+    => ex-50.6 done! 
 
 ask Google AI;
 Q;
