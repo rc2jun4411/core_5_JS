@@ -22,7 +22,12 @@ actions;
 2. edit
 2.38 index.html, style.css per ref 7. 
 ・Finding the length of a string
-  => ex-50.29 working
+・Retrieving a specific string character
+・Testing if a string contains a substring
+・Finding the position of a substring in a string
+
+  => ex-50.28.4 working
+
 
 ・   
 

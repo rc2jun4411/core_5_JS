@@ -25,64 +25,38 @@ hr {
 }
 html {
     font-family: sans-serif;
+    font-size:16px;
 }
 
-/* ex-50.28.2, */
+/* ex-50.28.4, */
 .div1 {
+    max-width: 320px;
+    min-width: 200px;
     background-color: lightblue;
-    /* divの内側をベタ塗り */
-    border: 1px solid #000000;
-    /* divの外周を幅1pxの十戦で囲う */
-    border-radius: 1.0rem;
-    /* <divの四隅をr取り*/
-
-    border: 0.4rem outset pink;
-    /* divの内縁に幅0.5remで飛び出してるように見せる縁取り*/
-
-    outline: 0.5rem solid khaki;
-    /* divの外縁0.5rem外側に、外周をカーキ色 */
-    outline-offset: 0.5rem;
-
-    box-shadow: 0 0 0 0.3rem rgb(6, 94, 129);
-    /* divの外縁に影つけ */
-
-    /* font: bold 1rem sans-serif; html {}　とダブり*/
-    margin: 1rem;
-    padding: 1rem;
 }
-
 .div2 {
     max-width: 320px;
     min-width: 200px;
-    background-color: lightblue;
+    background-color: lightgreen
 }
 .div3 {
-    max-width: 320px;
-    min-width: 200px;
-    background-color: lightgoldenrodyellow;
-}
-.div4 {
+    font-size: 12px;
+    color: brown;
     max-width: 320px;
     min-width: 200px;
     background-color: lightpink;
 }
-.div5 {
+.div41, .div42 {
+    font-size: 12px;
+    color: purple;
     max-width: 320px;
     min-width: 200px;
-    background-color: lightgreen;
+    background-color: lightyellow;
 }
-.div6 {
+.div51, .div52 {
+    font-size: 12px;
+    color: brown;
     max-width: 320px;
     min-width: 200px;
-    background-color: lightcyan;
-}
-.div7 {
-    max-width: 320px;
-    min-width: 200px;
-    background-color: lightslategray;
-}
-.div8 {
-    max-width: 320px;
-    min-width: 200px;
-    background-color: lightsalmon ;
+    background-color: lightblue;
 }

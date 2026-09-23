@@ -1,91 +1,70 @@
 /* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.4_Strings\index.js */
 
-/* ex-50.28.1, Single quotes, double quotes, and backticks */
-const single = 'Single quotes';
-const double = "Double quotes";
-const backtick = `Backtick`;
-
-console.log(single);
-console.log(double);
-console.log(backtick);
-
-/* ex-50.28.2, Embedding JavaScript */
-// div2
-const name1 = "Chris";
-const greeting = `Hello, ${name1}`;
-console.log(greeting); // "Hello, Chris"
+/* ex-50.28.4, */
+// Finding the length of a string, length property
+const browserType = "mozilla";
+browserType.length;
+console.log(browserType, "length = ",browserType.length);
 const headingA = document.querySelector("#heading_A");
-// Gemini, += を使って追記する場合（※上書きせずに後ろへ足す）
-headingA.innerHTML = `greeting = ${greeting}`;
-//headingA.innerHTML += ` (${typeof myInt})`; // += で追記
+headingA.innerHTML = `${browserType} length= ${browserType.length}`;
 
-// div3
-const one = "Hello, ";
-const two = "how are you?";
-const joined = `${one}${two}`;
-console.log(joined); // "Hello, how are you?"
+// Retrieving a specific string character
+let chr = browserType[browserType.length - 1];
+console.log(chr);
 const headingB = document.querySelector("#heading_B");
-headingB.innerHTML = `joined = ${joined}`;
+headingB.innerHTML = `word: "${browserType}" charactor
+                at [browserType.length - 1=6]: <br>${chr}`;
 
-// div4
-// VScode integrated browser could not display!
-// must be in Chrome.
-// click button "Press me", popup prompt("What 
-// is your name?") to request keyin your name, 
-// keyin name,click "OK", Get return message:
-//    `Hello ${name}, nice to see you!`;
-const button = document.querySelector("button");
+// Testing if a string contains a substring
+const browserType1 = "mozilla";
+let checker = browserType1.includes("zilla"); // 含まれている => true
+  console.log(checker);
 
-function greet() {
-  const name = prompt("What is your name?");
-  const greeting = document.querySelector("#greeting");
-  greeting.textContent = `Hello ${name}, nice to see you!`;
+if (browserType1.includes("zilla")) {
+  console.log("Found zilla!");
+} else {
+  console.log("No zilla here!");
 }
-button.addEventListener("click", greet);
+const headingC = document.querySelector("#heading_C");
+headingC.innerHTML = `include "zilla" in ${browserType1}? ` ;
+headingC.innerHTML += `<br>true(含む) false(含まない): <br>${checker}` ;
 
-// div5
-// concatenate normal strings using the + operator:
-const greeting2 = "Hello";
-const name2 = "Bob";
-console.log(greeting2 + ", " + name2); // "Hello, Bob"
-const headingD = document.querySelector("#heading_D");
-headingD.innerHTML = `${greeting2}, ${name2}`;
+// Finding the position of a substring in a string(1)
+const tagline = "MDN - Resources for developers, by developers";
+let target = "developers"
+console.log(tagline.indexOf(target)); // 20
+const headingD1 = document.querySelector("#heading_D1");
+headingD1.innerHTML = `charactor index for ${target} 
+  in the string <br>at: ${tagline.indexOf(target)} ` ;
 
-// div6
-// more readable code:
-const greeting3 = "Howdy";
-const name3 = "Ramesh";
-console.log(`${greeting3}, ${name3}`); // "Howdy, Ramesh"
-const headingE = document.querySelector("#heading_E");
-headingE.innerHTML = `${greeting3}, ${name3}`;
+// Finding the position of a substring in a string(2)
+const firstOccurrence = tagline.indexOf("developers");
+const secondOccurrence = tagline.indexOf("developers", 
+  firstOccurrence + 1);
 
-// div7
-// Including expressions in strings
-const song = "Fight the Youth";
-const score = 9;
-const highestScore = 10;
-const output = `I like the song ${song}. I gave it a score of ${
-  (score / highestScore) * 100
-}%.`;
-console.log(output); // "I like the song Fight the Youth. I gave it a score of 90%."
-const headingF = document.querySelector("#heading_F");
-headingF.innerHTML = `${output}`;
+console.log(firstOccurrence); // 20
+console.log(secondOccurrence); // 35
+const headingD2 = document.querySelector("#heading_D2");
+headingD2.innerHTML = `1st charactor index for ${target} 
+  in the string <br>at: ${firstOccurrence} <br>` ;
+headingD2.innerHTML += `2nd charactor index for ${target} 
+  in the string <br>at: ${secondOccurrence} ` ;  
 
-// div8
-// Numbers vs. strings
-const coolBandName = "Front ";
-const number = 242;
-console.log(coolBandName + number); // "Front 242"
+  // Extracting a substring from a string
+const browserType2 = "mozilla";
+// case 1:
+let ext1 = browserType2.slice(1, 4);
+      // index 1(o)-2(z)-3(i) => "ozi"を抽出
 
-const myString = "123";
-const myNum = Number(myString);
-console.log(typeof myNum);
-// number
+console.log(ext1); 
+const headingE1 = document.querySelector("#heading_E1");
+headingE1.innerHTML = `browserType2.slice(1,4): Extract "ozi" 
+    from "${browserType2}" resulted => "${ext1}" ` ;
 
-const myNum2 = 123;
-const myString2 = String(myNum2);
-console.log(typeof myString2);
-// string
+// case 2:
+let ext2 = browserType2.slice(2); //not defined ,2nd parameter
+console.log(ext2); 
+const headingE2 = document.querySelector("#heading_E2");
+headingE2.innerHTML = `browserType2.slice(2): Extract "zilla" 
+    from "${browserType2}" resulted => "${ext2}" ` ;
 
-const headingG = document.querySelector("#heading_G");
-headingG.innerHTML = `${coolBandName} + ${number}`;
