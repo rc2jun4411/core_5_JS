@@ -68,3 +68,17 @@ const headingE2 = document.querySelector("#heading_E2");
 headingE2.innerHTML = `browserType2.slice(2): Extract "zilla" 
     from "${browserType2}" resulted => "${ext2}" ` ;
 
+  // Changing case
+const radData = "My NaMe Is MuD";
+let chr_S = radData.toLowerCase();
+let chr_L = radData.toUpperCase();
+
+console.log(radData.toLowerCase()); // 全字を小文字に
+console.log(radData.toUpperCase()); // 全字を大文字に 
+const headingG1 = document.querySelector("#heading_G1");
+headingG1.innerHTML = `target: "${radData}"<br> 
+   method 'toLowerCase()' convert all characters to lowercase "${chr_S}" ` ;
+
+const headingG2 = document.querySelector("#heading_G2");
+headingG2.innerHTML = `target: "${radData}"<br> 
+   method 'toUpperCase()' convert all characters to uppercase "${chr_L}" ` ;

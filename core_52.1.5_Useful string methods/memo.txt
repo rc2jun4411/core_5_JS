@@ -25,11 +25,10 @@ actions;
 ・Retrieving a specific string character
 ・Testing if a string contains a substring
 ・Finding the position of a substring in a string
-
+・Extracting a substring from a string
+・Changing case
   => ex-50.28.4 working
 
-
-・   
 
 MDN ref 7. path;
 Learn
