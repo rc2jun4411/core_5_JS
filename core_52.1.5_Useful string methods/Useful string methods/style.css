@@ -26,6 +26,8 @@ hr {
 html {
     font-family: sans-serif;
     font-size:16px;
+    max-width: 240px;
+    min-width: 160px;
 }
 
 /* ex-50.28.4, */

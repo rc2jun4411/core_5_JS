@@ -1,0 +1,38 @@
+ref 9. https://developer.mozilla.org/en-US/docs
+      /Learn_web_development/Core/Scripting/Arrays
+   In this article;
+    ・What is an array?
+    ・Creating arrays
+    ・Finding the length of an array
+    ・Accessing and modifying array items
+    ・Finding the index of items in an array
+    ・Adding items
+    ・Removing items
+    ・Accessing every item
+    ・Converting between strings and arrays
+    ・Printing those products
+    ・Storing the previous 5 searches
+    ・Summary
+
+2026-09-25
+folder: "core_52.1.6_Arrays" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.5_Useful string methods", "Test your skills_Strings"
+                to   "core_52.1.6_Arrays"
+2. edit
+2.41 index.html, style.css per ref 9. 
+   ・Creating arrays
+   
+    => ex-50.31.1 working
+
+
+
+MDN ref 9. path;
+Learn
+Core learning modules
+JavaScript
+Arrays
+
+所見: 使える ?
