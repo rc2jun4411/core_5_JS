@@ -1,0 +1,37 @@
+ref 7. https://developer.mozilla.org/en-US/docs
+       /Learn_web_development/Core/Scripting/Useful_string_methods
+    In this article;
+     ・Updating parts of a string
+ref 7.1 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
+    7.2 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ul
+    7.3 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/li
+
+2026-09-24
+folder: "core_52.1.5_Useful string methods", "html list ul" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.5_Useful string methods"
+                to "cre_52.1.5_Useful string methods", "html list ul"
+2. edit
+2.39 index.html, style.css per ref 7.2, 7.3 
+ ref 7, ・Updating parts of a string,
+   sidekick to 
+ ref 7.1, 7.2, 7.3 html, element <ul> <li>
+  => ex-50.28.4 done! 
+  ・Try it
+  ・Examples
+   -Ordered list
+   -Ordered list with a custom value
+   -Unordered list
+  => ex-50.28.4.1 done!
+
+
+MDN ref 7.3 path;
+Web
+HTML
+Reference
+Elements
+<li>
+
+所見: 使える ?

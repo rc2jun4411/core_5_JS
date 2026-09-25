@@ -1,0 +1,187 @@
+ref 7. https://developer.mozilla.org/en-US/docs
+       /Learn_web_development/Core/Scripting/Useful_string_methods
+ref 7.4 https://blog.grinee.net/glowing-button/
+        sidekick,・きらめくフォント Google 検索AI/Gemini
+
+2026-09-24
+folder: "core_52.1.5_Useful string methods", "sidekick_きらめくフォント" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.5_Useful string methods"
+                to   "core_52.1.5_Useful string methods", "sidekick_きらめくフォント"
+2. edit
+2.40 index.html, style.css per ref 7.4 
+  => ex-50.29.3 done!
+
+
+ask Google 検索AI/Gemini,
+Q1:
+css animation 開始位置
+A1:
+AI による概要:
+CSSアニメーションの開始位置（再生位置やタイミング、表示位置）
+を変更するには、用途に応じて主に3つの方法があります。
+
+1. アニメーションの途中（時間軸の途中）から開始する
+  再生タイミング（時間的な開始位置）をずらしたいときは、
+  animation-delay プロパティにマイナスの値を指定します。
+  animation-delay: -2s;：アニメーションがすでに2秒経過した状態
+  （途中）から即座にスタートします。
+
+2. アニメーションが始まる位置（座標・レイアウト）を変更する
+  画面上の表示位置や移動の開始位置を変えたいときは、
+  @keyframes の 0%（または from）の値や、要素自体のCSSプロパティを
+  調整します。
+    @keyframes：0% { transform: translateX(50px); } 
+  のように記述して開始時の座標を指定します。
+    offset-position：モーションパス（軌跡）に沿って動かす
+  アニメーションの場合、開始位置の座標を指定できます。
+  
+3. スクロールに連動したアニメーションの開始位置を指定する
+  スクロール位置に応じて進む「スクロール駆動アニメーション」
+  の場合は、
+    animation-range または 
+    animation-range-start プロパティを使用します。
+    animation-range-start：スクロールコンテナーのどの位置で
+    アニメーションを開始するか（例: 20% や cover 0% など）を
+    指定します。
+    
+    具体的な実装方法やコードを確認したい場合、以下を教えてください：
+    時間的に途中から再生したいのか、
+    画面上の座標を変えたいのか
+    スクロールに連動させたいのか
+    詳細なサンプルコードをご案内します。
+
+Q2:
+animationの表示位置を指定する方法は？codeを送ります。
+A2:
+共有いただいたコードで、アニメーションする円（.puff）の表示位置を指定するには、親要素である #div3 を基準にして position: absolute;（絶対配置）を使用するのが最も確実で自由度が高い です。以下に、表示位置を自由にコントロールするための具体的な修正コードを提案します。修正後のCSS親要素（#div3）に position: relative; を追加し、アニメーションする円（.puff）に position: absolute; と位置を指定するプロパティ（top、left など）を追加します。css/* 親要素の基準位置を設定 */
+#div3 {
+    background-color: lightslategrey;
+    height: 160px;
+    position: relative; /* 子要素の位置指定の基準にします */
+}
+
+/* アニメーション要素の位置とスタイル */
+.puff {
+    position: absolute; /* 親要素を基準にした絶対配置 */
+    
+    /* 【位置指定】ここを自由に変更してください */
+    top: 20px;          /* 上から20pxの位置 */
+    left: 50px;         /* 左から50pxの位置 */
+    
+    animation: 2s 0s puff ease-in-out infinite;
+}
+
+@keyframes puff {
+    0%,
+    100% { transform: scale(.4); }
+    50% { transform: scale(.5); }
+}
+
+よく使う位置指定のパターン:
+上記の 【位置指定】 の部分を以下のように書き換える
+ことで、配置を自由に変えられます。
+
+右下に配置したい場合
+css:
+bottom: 10px;
+right: 10px;
+
+親要素（#div3）の真ん中（中央）に配置したい場合
+css
+top: 50%;
+left: 50%;
+
+/* 元々の中心がズレるのを防ぐため、中心点を合わせる
+記述を追加します */
+transform-origin: center; 
+/* 💡注意：中心に置く場合は、@keyframes内のtransform
+に「translate(-50%, -50%)」を混ぜる必要があります
+（後述） */
+
+⚠️ 注意点：真ん中（中央）に配置する場合の書き方@keyframes 内で transform: scale() を使用しているため、中央配置のために transform: translate(-50%, -50%) を併用する場合は、以下のように translate と scale を併記 する必要があります。css/* 中央配置のパターン */
+.puff {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    animation: 2s 0s puff ease-in-out infinite;
+}
+
+@keyframes puff {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(.4);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(.5);
+    }
+}
+
+  => ex-50.29.4 working
+
+ask Google 検索AI/Gemini,
+Q1:
+”画像(scenery.jpg)を SVG(mask.svg)の形に合わせて切り抜く" を
+トライ中です
+A1:
+AI による概要:
+mask-image の記述方法（構文）に原因があります。
+CSSでマスク画像を読み込む際は、背景画像（background-image）
+と同じように url() で囲む必要があります。
+現在のコードの 'mask.svg'; という文字列のみの指定では、ブラウザ
+が画像ファイルとして認識できません。
+また、古いブラウザや一部の環境（Safariや古いChromeなど）でも
+確実に動作させるために、-webkit- プレフィックスを併記するのが
+一般的です。
+
+修正後のCSS.mask-image の mask-image 部分を以下のように
+修正してください。
+css
+.mask-image {
+    display: block;
+    width: 162px;
+    height: 200px;
+    
+    /* 修正ポイント：url() を使い、プレフィックスも追加します */
+    -webkit-mask-image: url('mask.svg');
+    mask-image: url('mask.svg');
+    
+    /* 他のmaskプロパティにもプレフィックスを付けるとより安全です */
+    -webkit-mask-position: center;
+    mask-position: center;
+    
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    
+    object-fit: cover;
+}
+
+💡 うまく切り抜けないときのチェックポイント:
+  もし上記に直しても切り抜けない場合、原因は SVGファイル（mask.svg）
+の内部コード にあります。背景が透明（透過）になっているかCSSマスクは、
+SVGの「色がある部分」に画像を表示し、「透明な部分」を切り抜き（非表示）
+にします。
+  送っていただいた可愛いキャラクターの白い目の部分や、
+体の外側の背景部分が「透明（透過）」データになっていれば綺麗に
+くり抜かれます。
+  SVG内に不透明な背景白（fill="#ffffff" や fill="white"）
+の四角形が残っていないか もしSVG全体に白い背景が敷かれていると、
+四角形丸ごと「色がある」と判定され、ただの四角い画像のままになって
+しまいます。
+  その場合はSVG編集ソフトやテキストエディタで背景のパスを削除する
+必要があります。
+
+まずは url('mask.svg') への修正を試してみてください！
+コードを修正してみて、変化がない（四角いまま）画像自体が消えて
+しまったなど、変化があれば教えてください。
+SVGの構造に合わせた対策をご案内します！
+
+
+
+
+所見: 使える ?

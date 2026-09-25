@@ -1,0 +1,78 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.4_Strings\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+html {
+    font-family: sans-serif;
+    font-size:16px;
+}
+
+/* ex-50.28.4.1, */
+p,
+li {
+    font:
+        1.0rem "Fira Sans",
+        sans-serif;
+}
+p {
+    font-weight: bold;
+}
+
+/* ref. ex-50.28.4 */
+#div1 {
+    color: purple;
+    max-width: 240px;
+    min-width: 160px;
+    background-color: lightgreen;
+}            
+#div2 {
+    color: purple;
+    max-width: 240px;
+    min-width: 160px;
+    background-color: lightpink;
+}
+#div3 {
+    color: purple;
+    max-width: 240px;
+    min-width: 160px;
+    background-color: lightblue;
+}
+#div4 {
+    color: purple;
+    max-width: 240px;
+    min-width: 160px;
+    background-color: lightyellow;
+}
+#div5 {
+    color: brown;
+    max-width: 320px;
+    min-width: 160px;
+    background-color: lightgreen;
+}
+#div6 {
+    color: brown;
+    max-width: 320px;
+    min-width: 160px;
+    background-color: lightslategrey;
+}

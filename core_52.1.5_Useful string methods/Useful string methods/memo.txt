@@ -27,7 +27,9 @@ actions;
 ・Finding the position of a substring in a string
 ・Extracting a substring from a string
 ・Changing case
-  => ex-50.28.4 working
+  => ex-50.28.4 done! go to 
+   folder "core_52.1.5_Useful string methods", "html list ul"
+   => ex-50.28.4.1 
 
 
 MDN ref 7. path;

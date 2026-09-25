@@ -82,3 +82,47 @@ headingG1.innerHTML = `target: "${radData}"<br>
 const headingG2 = document.querySelector("#heading_G2");
 headingG2.innerHTML = `target: "${radData}"<br> 
    method 'toUpperCase()' convert all characters to uppercase "${chr_L}" ` ;
+
+  // Updating parts of a string, only one time! use replaceAll():
+  //   to change AbortController.
+const browserType3 = "mozilla";
+const updated = browserType.replace("moz", "van");
+
+console.log(updated); // "vanilla"
+console.log(browserType); // "mozilla"  
+const headingH = document.querySelector("#heading_H");
+headingH.innerHTML = 
+   `target: "moz" with "van" inside of "${browserType3}"<br> 
+   using method 'replace()' resulted "${updated}". ` ;
+
+  // Learning challenges, 
+  // Filtering greeting messages
+const list = document.querySelector("ul");
+const greetings = [
+  "Happy Birthday!",
+  "Merry Christmas my love",
+  "A happy Christmas to all the family",
+  "You're all I want for Christmas",
+  "Get well soon",
+];
+
+// working good !!
+for (const greeting of greetings) {
+  if (greeting.includes("Christmas")) {
+    const listItem = document.createElement("li");
+    listItem.textContent = greeting;
+    list.appendChild(listItem);
+  }
+}
+
+// not working !!
+// for (const greeting of greetings) {
+//   // Your conditional test needs to go inside the parentheses
+//   // in the line below, replacing what's currently there
+//   if (greeting) {
+//     const listItem = document.createElement("li");
+//     listItem.textContent = greeting;
+//     list.appendChild(listItem);
+//   }
+// }
+  

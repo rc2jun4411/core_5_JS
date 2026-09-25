@@ -1,0 +1,159 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.5_Useful string methods\sidekick_CSS_blog_grinee\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+html {
+    font-family: sans-serif;
+    font-size:12px;
+    max-width:280px;
+    min-width:160px;
+}
+
+/* ex-50.29.1,きらめくフォント */
+#div1 {
+    background-color: lightblue;
+}
+.button {
+    background: #111;
+    border-radius: 40px;
+    color: #fff;
+    display: inline-block;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    text-decoration: none;
+}
+.button::after {
+    animation: 2s 0s shine linear infinite;
+    background: linear-gradient(to right,
+     rgba(255, 255, 255, 0)   25%,
+     rgba(255, 255, 255, 0.6) 50%,
+     rgba(255, 255, 255, 0) 75%);
+    content: "";
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    transform: skewX(-15deg);
+    width: 100%;
+}
+.button:hover {
+    color: #fff;
+}
+@keyframes shine {
+    20% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* ex-50.29.2,吹き出しとしっぽにまとめて影をつける */
+#div2 {
+    background-color: lightgreen;
+    height: 100px;
+}
+.bubble {
+    background: #fff;
+    border-radius: 10px;
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .6));
+    padding: 10px;
+    position: relative;
+}
+.bubble::before {
+    border-color: #fff transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    bottom: -6px;
+    content: 'content ?';
+    height: 0;
+    left: 20px;
+    position: absolute;
+    width: 0;
+}
+
+/* ex-50.29.3, */
+#div3 {
+    background-color: lightslategrey;
+    height: 160px;
+    position: relative;
+    /* 子要素の位置指定の基準にします */
+}
+.puff {
+    position: absolute; /* 親要素を基準にした絶対配置 */
+    top:  0px;   /* 上から   0pxの位置 */
+    left: -50px; /* 左から -50pxの位置 */
+
+    animation: 2s 0s puff ease-in-out infinite;
+}
+@keyframes puff {
+    0%,
+    100% {transform: scale(.4);}
+    50% {transform: scale(.5);}
+}
+
+/* ex-50.29.4, */
+#div4 {
+    background-color: lightskyblue;
+    height: 240px;
+}
+.mask-image {
+    /* widthとheightの値は、SVGの大きさに合わせて調整します。 */
+    display: block;
+    width: 162px;
+    height: 200px;
+    /* mask-image: url('https://blog.grinee.net/demo/images/mask.svg'); */
+    /* 修正ポイント：url() を使い、プレフィックスも追加します */
+    -webkit-mask-image: url('mask.svg');
+    mask-image: url('mask.svg');
+    
+    /* 他のmaskプロパティにもプレフィックスを付けるとより安全です */
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    object-fit: cover;
+}
+
+/* ex-50.29.5, */
+.text-outlined {
+    color: #fff;
+    font-size: 24px;
+    text-shadow: -2px 0 2px #000, 
+                  2px 0 2px #000, 
+                 0 -2px 2px #000, 
+                 0  2px 2px #000;
+}
+.text-outlined2 {
+    color: #fff;
+    font-size: 24px;
+    paint-order: stroke fill;
+    -webkit-text-stroke: 5px #000;
+}
