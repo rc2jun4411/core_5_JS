@@ -26,11 +26,37 @@ hr {
 html {
     font-family: sans-serif;
     font-size:14px;
-    max-width: 240px;
+    max-width: 320px;
     min-width: 160px;
 }
+p {
+    /* これを入れると、JSのテンプレートリテラル内の改行がそのまま画面に出ます */
+    white-space: pre-wrap;
+}
 
-/* ex-50.31.1, Arrays, */
+/* Arrays,
+ ex-50.31.1, ex-50.31.2, ex-50.31.3, ex-50.31.4, ex-50.31.  */
 .div1 {
     background-color: lightblue;
+}
+.div2 {
+    background-color: lightgreen;
+}
+.div3 {
+    background-color: lightpink;
+}
+.div4 {
+    background-color: lightblue;
+}
+.div5 {
+    background-color: lightgreen;
+}
+.div6 {
+    background-color: lightpink;
+}
+.div7 {
+    background-color: lightblue;
+}
+.div8 {
+    background-color: lightgreen;
 }

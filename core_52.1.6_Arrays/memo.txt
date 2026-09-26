@@ -23,16 +23,73 @@ actions;
                 to   "core_52.1.6_Arrays"
 2. edit
 2.41 index.html, style.css per ref 9. 
-   ・Creating arrays
-   
-    => ex-50.31.1 working
+ ・Creating arrays => ex-50.31.1 done!
+ ・Finding the length of an array => ex-50.31.2 done!
+ ・Accessing and modifying array items => ex-50.31.3 done!
+ ・Finding the index of items in an array => ex-50.31.4 done!
+ ・Adding items => ex-50.31.5 done!
+ ・Removing items => ex-50.31.6 working
+   -pop() methods
+   -shift() methods
+   -splice() methods
+     case 3-1:
+     error
+ask Gemini,
+Q1:
+javascript:
+  para62.textContent = `splice() method:\n  
+  item to be splice()ed: [${cities62[index]}] \n`;で
+  ${cities62[index]}の表示が "Liverpool"でなく"Edinburgh"になってしまう。
+  cities62.splice(index, 1);は正常に実行されている。codeを送ります。
+A1:
+  原因は、cities62[index] を画面に表示する「タイミング」にあります。
+コードの順番を見ると、cities62.splice(index, 1); を実行して "Liverpool" 
+を配列から削除した「後」に、cities62[index] を表示しようとしています。
+配列から値が削除されると、それ以降のデータの位置（インデックス）が前に
+ずれます。そのため、削除された後の index 番目（番目）を指定すると、
+新しくその位置にずれてきた "Edinburgh" が表示されてしまいます。
+解決方法:
+削除する予定のアイテム（"Liverpool"）を正しく表示するには、splice() で
+削除を実行する「前」に、別の変数に名前を保存しておく必要があります。
+以下のように修正すると、期待通りの表示になります。
+修正後のJavaScriptコード:
+javascript:
+// case 3-1, splice() method: 
+const cities62 = ["Manchester", "Liverpool", "Edinburgh", "Carlisle"];
+
+// 正しい配列名「cities62」から検索するように修正しています
+const index = cities62.indexOf("Liverpool"); 
+
+// 💡 修正ポイント1: 削除する「前」に、そのアイテムの名前を保存しておきます
+let removedItem = "";
+if (index !== -1) {
+  removedItem = cities62[index]; // ここで "Liverpool" を一時保存
+  
+  cities62.splice(index, 1); // ここで配列から削除（削除後はインデックスがずれます）
+}
+
+const section62 = document.querySelector("#sect6");
+const para62 = document.createElement("p");
+
+// 💡 修正ポイント2: 保存しておいた変数を表示します
+para62.textContent = `splice() method:\n  item to be splice()ed: [${removedItem}] \n`; 
+para62.textContent += `  cities[] after splice(): [${cities62}] \n\n`; 
+section62.appendChild(para62);
 
 
+error解消!
+
+   -splice() methods
+     case 3-2: To remove two(2) items
+
+ ・Removing items => ex-50.31.6 done!
+ ・Accessing every item => ex-50.31.7 done!
+ ・Converting between strings and arrays => ex-50.31.　
 
 MDN ref 9. path;
 Learn
 Core learning modules
-JavaScript
+JavaScript8 working
 Arrays
 
 所見: 使える ?
