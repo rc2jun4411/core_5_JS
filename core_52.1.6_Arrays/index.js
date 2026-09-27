@@ -207,26 +207,124 @@ para73.textContent += `${longer}, OVER !!`;
 section73.appendChild(para73);
 
 
-/* ex-50.31.8, ・Converting between strings and arrays
-              split() method. */
+/* ex-50.31.8, ・Converting between strings and arrays */
+//=div8=
+// case 1, split() method. 
 const data = "Manchester,London,Liverpool,Birmingham,Leeds,Carlisle"; // string
 //console.log(data); 
 const cities8 = data.split(","); // converted to array, separated per "," word by word !!
 //console.log(cities8);
 
-const section8 = document.querySelector("#sect8");
-const para8 = document.createElement("p");
-para8.textContent = `data defined as long string with ",": ${data} \n\n`;
-para8.textContent += `after split()ed, const cities8 = data.split(",");: ${cities8}\n`;
-section8.appendChild(para8);
+const section81 = document.querySelector("#sect8");
+const para81 = document.createElement("p");
+para81.textContent = `case 1, data defined as long string with ",": ${data} \n\n`;
+para81.textContent += `after split()ed, const cities8 = data.split(",");: ${cities8}\n`;
+section81.appendChild(para81);
 
 // check array cities8[ ]
 const checkLength = cities8.length;
 const checkArray_0 = cities8[0];   // the first item in the array
 const checkArray_1 = cities8[1];   // the second item in the array
 const checkArray_last = cities8[cities8.length - 1]; // the last item in the array
-para8.textContent += `cities8.length: ${checkLength}\n`;
-para8.textContent += `cities8[0]: ${checkArray_0}\n`;
-para8.textContent += `cities8[1]: ${checkArray_1}\n`;
-para8.textContent += `cities8[cities8.length - 1]: ${checkArray_last}, OVER !!\n`;
+para81.textContent += `cities81.length: ${checkLength}\n`;
+para81.textContent += `cities81[0]: ${checkArray_0}\n`;
+para81.textContent += `cities81[1]: ${checkArray_1}\n`;
+para81.textContent += `[cities81.length - 1]: ${checkArray_last}\n`;
 
+// case 2, join() method and toString() method.
+const commaSeparated = cities8.join(",");
+//console.log(commaSeparated);
+
+const section82 = document.querySelector("#sect8");
+const para82 = document.createElement("p");
+para82.textContent = `case 2, commaSeparated defined as array per method cities8.join(",");: ${commaSeparated} \n\n`;
+para82.textContent += `after join()ed, const commaSeparated = cities8.join(",");: ${commaSeparated}\n`;
+section82.appendChild(para82);
+
+// case 3, toString() method, converting an array to a string.
+const dogNames = ["Rocket", "Flash", "Bella", "Slugger"];
+//console.log(dogNames);    // will return (4) ["Rocket", "Flash", "Bella", "Slugger"] ok
+//console.log(dogNames[3]); // will return Slugger ok
+//console.log(dogNames[4]); // will return undefined  ok 
+//console.log(dogNames.toString()); // string 'Rocket,Flash,Bella,Slugger'が表示されるはず？ ok
+//console.log(dogNames);    // dogNames.toString()後,dogNamesは保存されている。ok
+//console.log(dogNames[2]); // will return Bella ok
+const dogString = dogNames.toString();
+//console.log(dogString);     // will return 'Rocket,Flash,Bella,Slugger' ok
+
+const section83 = document.querySelector("#sect8");
+const para83 = document.createElement("p");
+para83.textContent = `case 3, dogNames defined as string array, to apply toString() method: ${dogNames} \n\n`;
+para83.textContent += `defined dogString = dogNames.toString();: "${dogString}", OVER !!\n`;
+section83.appendChild(para83);
+
+/* ex-50.31.9, ・Printing those products */
+//=div9=
+// 
+const list = document.querySelector(".output ul");
+const totalBox = document.querySelector(".output p");
+let total = 0;
+list.textContent = "";
+totalBox.textContent = "";
+// Part 1, Part 2
+const products = [
+  "Underpants:6.99",
+  "Socks:5.99",
+  "T-shirt:14.99",
+  "Trousers:31.99",
+  "Shoes:23.99"
+];
+//console.log(products);
+// Part 3, Part 4, Part 5, Part 6
+for (const product of products) {
+  const subArray = product.split(":");
+  const name = subArray[0];
+  const price = Number(subArray[1]);
+  total += price;
+  const itemText = `${name} — $${price}`;
+
+  const listItem = document.createElement("li");
+  listItem.textContent = itemText;
+  list.appendChild(listItem);
+}
+totalBox.textContent = `Total: $${total.toFixed(2)}, OVER !!`;
+
+
+/* ex-50.31.10, ・Storing the previous 5 searches */
+//=div10=
+// 
+const list10 = document.querySelector(".output10 ul");
+const searchInput = document.querySelector(".output10 input");
+const searchBtn = document.querySelector(".output10 button");
+
+list10.textContent = "";
+
+const myHistory = [];
+const MAX_HISTORY = 5;
+
+searchBtn.addEventListener("click", () => {
+  // we will only allow a term to be entered if the search input isn't empty
+  if (searchInput.value !== "") {
+    myHistory.unshift(searchInput.value);
+
+    // empty the list so that we don't display duplicate entries
+    // the display is regenerated every time a search term is entered.
+    list10.textContent = "";
+
+    // loop through the array, and display all the search terms in the list
+    for (const itemText10 of myHistory) {
+      const listItem10 = document.createElement("li");
+      listItem10.textContent = itemText10;
+      list10.appendChild(listItem10);
+    }
+
+    // If the array length is 5 or more, remove the oldest search term
+    if (myHistory.length >= MAX_HISTORY) {
+      myHistory.pop();
+    }
+
+    // empty the search input and focus it, ready for the next term to be entered
+    searchInput.value = "";
+    searchInput.focus();
+  }
+});

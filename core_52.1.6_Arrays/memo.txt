@@ -84,7 +84,11 @@ error解消!
 
  ・Removing items => ex-50.31.6 done!
  ・Accessing every item => ex-50.31.7 done!
- ・Converting between strings and arrays => ex-50.31.　
+ ・Converting between strings and arrays => ex-50.31.8 done!
+ ・Printing those products => ex-50.31.9 done!
+ ・Storing the previous 5 searches,検索web siteを模擬:
+  => ex-50.31.10 done!
+ 　
 
 MDN ref 9. path;
 Learn
@@ -92,4 +96,4 @@ Core learning modules
 JavaScript8 working
 Arrays
 
-所見: 使える ?
+所見: 使える !!

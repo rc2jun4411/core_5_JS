@@ -60,3 +60,17 @@ p {
 .div8 {
     background-color: lightgreen;
 }
+
+.div9 {
+    background-color: lightpink;
+}
+.output {
+    min-height: 100px;
+}
+
+.div10 {
+    background-color: lightblue;
+}
+.output10 {
+    margin: 1rem;
+}
