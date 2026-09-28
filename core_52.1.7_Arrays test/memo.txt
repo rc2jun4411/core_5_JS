@@ -38,4 +38,4 @@ JavaScript
 Test: JavaScript tests index
 Test: Arrays
 
-所見: 使える ?
+所見: 使える !!

@@ -1,0 +1,113 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.8_Challenge_Silly story generator\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    content: "'🩷'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+html {
+    font-family: sans-serif;
+    font-size:14px;
+    max-width: 280px;
+    min-width: 160px;
+}
+p {
+    color: purple;
+    margin: 0.5em 0;
+    /* これを入れると、JSのテンプレートリテラル内の改行がそのまま画面に出ます */
+    white-space: pre-wrap;
+}
+
+/* Challenge: Silly story generator */
+/* ex-50.33 */
+.div1 {
+    background-color: lightblue;
+}
+
+* {
+    box-sizing: border-box;
+}
+/*アスタリスク *は、すべての要素を選択するユニバーサルセレクターです。そのため、
+1.
+* {
+    box-sizing: border-box;
+}
+と書くことで、ページ内のすべての要素に対して box-sizing: border-box;
+が適用されます。 border-box(property)では、幅（width）および高さ（height）
+プロパティは、コンテンツ、パディング、およびボーダーが含まれた全体的なサイズ
+をカバーします。指定した幅や高さが要素の全体的なサイズとなります。
+2.
+* {
+    box-sizing: content-box;
+}
+と書くことで、ページ内のすべての要素に対して box-sizing: content-box;
+が適用されます。content-box(property)では、幅（width）および高さ（height）
+プロパティは、要素の内容（コンテンツ）の領域のみをカバーします。
+パディングやボーダーは、この幅や高さに含まれず、追加されるため、要素の全体的なサイズ
+は指定した幅や高さよりも大きくなります。
+*/
+
+/* see ref. 11 */
+body {
+    font: 1.2em / 1.5 system-ui;
+    margin: 0 auto;
+    width: 320px;
+}
+
+fieldset {
+    border: 0;
+}
+
+fieldset,
+legend {
+    padding: 0;
+    margin: 0;
+}
+
+input[type="text"] {
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    width: 50%;
+    display: block;
+}
+
+/* button, Generate random storyの修飾*/
+.generate {
+    margin-left: 5px;
+}
+
+div {
+    margin-top: 10px;
+    background-color: lightgreen;
+}
+
+fieldset {
+    margin-top: 10px;
+    background-color: lightpink;
+}
+
+.story {
+    margin-top: 10px;
+    background: lightyellow;
+    padding: 20px;
+    visibility: hidden;
+}

@@ -1,0 +1,92 @@
+ref 12. https://developer.mozilla.org/en-US/docs
+        /Learn_web_development/Core/Scripting/Conditionals
+    In this article;
+    ・You can have it on one condition!, no coding. 
+    ・if...else statements
+    ・switch statements
+    ・Ternary operator
+    ・Implementing a basic calendar
+    ・Adding more color choices
+    ・Summary
+
+2026-09-28
+folder: "core_52.1.9_Conditionals" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.8_Challenge_Silly story generator"
+                to   "core_52.1.9_Conditionals"
+2. edit
+2.43 index.html, style.css per ref 12. 
+ ・if...else statements => ex-50.34 done! but error,
+  at div1, para1 disappeared ? 
+
+ask Gemini why?
+Q1:
+=div3=のcodingを追加したら、=div1=のpara1が消えてしまいました？ why? codeを送ります。
+
+A1:
+純一さん、おはようございます！コードをお送りいただきありがとうございます。
+条件分岐（If文）とイベントリスナー（change）を使った素晴らしいプログラム
+ですね。
+=div1= の para1 が消えてしまった原因は、div3 のコーディング内にある 
+document.querySelector("p") の指定が強すぎるからです。
+
+💡 原因：なぜ para1 が消えたのか？
+JavaScriptの document.querySelector("p") は、「ページ全体の中から、
+一番最初に見つかった <p> タグを1つだけ連れてくる」という命令です。
+今回のHTMLの構造を上から見ていくと、一番最初にある <p> タグは、
+JavaScript（step 1）で自動的に作成されて section1 に追加された 
+para1 の <p> タグになります。
+そのため、step 3 のコードは以下のような動きになってしまっていました。
+1. document.querySelector("p") で、section3 の中ではなく、
+    section1 にある para1 を捕まえてしまう。
+2. その捕まえた para1 の中身を para3.textContent = subject3; で
+    上書きしたため、step 1 の文字が消えてしまった。
+3. さらに section3.appendChild(para3) によって、その要素が 
+　　section1 から section3 へ引っ越し（移動） してしまった。
+
+🛠️ 修正方法
+section3 の中にある <p> タグだけをピンポイントで指定するように
+修正しましょう！
+JavaScriptの step 3（// ・else if の部分） を以下のように書き換えて
+みてください。
+
+javascript
+// ・else if
+let subject3 = "step 3,・else if"
+const select = document.querySelector("select");
+
+// 【修正ポイント】section3 の中にある p タグだけを探すように指定します
+const section3 = document.querySelector("#sect3");
+const para3 = section3.querySelector("p"); // document ではなく 
+section3 から探す
+para3.textContent  = `${subject3}`;
+// section3.appendChild(para3); // 元からHTMLにあるpタグを使うので、
+この行は消しても大丈夫です！
+
+🔍 もうひとつの小さなタイポ（打ち間違い）の修正
+step 2 のチェック部分に、一箇所だけ t が抜けているタイポを見つけました。
+こちらも合わせて直しておくと安心です。
+javascript
+// 修正前
+para2.textConten  += `shoppingDone ?: ${shoppingDone}\n`;
+
+// 修正後（末尾に t をつける）
+para2.textContent  += `shoppingDone ?: ${shoppingDone}\n`;
+コードは注意してご使用ください。
+この2箇所を修正すれば、div1 も div2 も消えずに残り、div3 のお天気選択
+（セレクトボックス）もバッチリ動くようになります！
+純一さん、この修正で div1 の文字が消えずに残り、お天気選択も正しく
+動くようになりそうでしょうか？
+実際に試してみて、結果を教えていただけると嬉しいです！
+
+ ・if...else statements => ex-50.34 done!
+
+MDN ref 12. path;
+Learn
+Core learning modules
+JavaScript
+Conditionals
+
+所見: 使える !!
