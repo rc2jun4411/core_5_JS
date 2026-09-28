@@ -1,0 +1,41 @@
+ref 10. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core
+        /Scripting/Test_your_skills/Arrays
+    In this article:
+    ・Arrays 1
+    ・Arrays 2
+    ・Arrays 3
+    ・Arrays 4
+
+2026-09-27
+folder: "core_52.1.7_Arrays test" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.6_Arrays"
+                to   "core_52.1.7_Arrays test"
+2. edit
+2.42 index.html, style.css per ref 10. 
+ ・Arrays 1 => ex-50.32.1 done!
+ ・Arrays 2 => ex-50.32.2 done!
+ ・Arrays 3 => ex-50.32.3 error?
+ask Gemini,
+Q1:
+section31.appendChild(para31);でerrorです。index.js:75 Uncaught TypeError: Cannot read properties of null (reading 'appendChild')
+    at index.js:75:11　表示できません？, codeを送ります。
+A1:
+html: <section id="sect3"></section>
+js: const section31 = document.querySelector("sect3");
+ => const section31 = document.querySelector("#sect3");
+                                             👆    　
+ ・Arrays 3 => ex-50.32.3 done!
+ ・Arrays 3 => ex-50.32.3　working
+ 
+
+MDN ref 10. path;
+Learn
+Core learning modules
+JavaScript
+Test: JavaScript tests index
+Test: Arrays
+
+所見: 使える ?

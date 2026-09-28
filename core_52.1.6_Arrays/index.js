@@ -255,7 +255,11 @@ const dogString = dogNames.toString();
 const section83 = document.querySelector("#sect8");
 const para83 = document.createElement("p");
 para83.textContent = `case 3, dogNames defined as string array, to apply toString() method: ${dogNames} \n\n`;
-para83.textContent += `defined dogString = dogNames.toString();: "${dogString}", OVER !!\n`;
+//para83.textContent += `defined dogString = dogNames.toString();: "${dogString}", OVER !!\n`;
+para83.innerHTML += `cities83[cities83.length - 1]: ${checkArray_last}, 
+<span style="color: red;">OVER !!</span>\n`;
+// OVER !!を赤字にした。per Google検索AI/Gemini
+
 section83.appendChild(para83);
 
 /* ex-50.31.9, ・Printing those products */

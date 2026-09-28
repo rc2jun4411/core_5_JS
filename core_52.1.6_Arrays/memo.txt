@@ -97,3 +97,34 @@ JavaScript8 working
 Arrays
 
 所見: 使える !!
+
+ask Gemini,
+Q2:
+javascript:
+テンプレートリテラル内で一部分を赤色字にできますか？
+A1:
+AI による概要:
+JavaScriptの textContent は純粋なテキストしか扱えないため、
+テンプレートリテラル内の特定の文字だけに色をつけることは
+できません。
+文字に色をつける（HTMLタグを反映させる）には、
+textContent ではなく 
+innerHTML を使用する必要があります。
+
+以下のように修正することで、OVER !! の部分だけを赤字にできます。
+
+修正コードjavascript
+// textContent を innerHTML に変更し、赤字にしたい部分を 
+<span> タグで囲む
+
+para8.innerHTML += `cities8[cities8.length - 1]: ${checkArray_last}, 
+<span style="color: red;">OVER !!</span>\n`;
+
+仕組みの違い:
+textContent: 
+  すべての文字をそのままテキストとして画面に表示します。
+  （<span style="color: red;"> という文字自体がそのまま画面に見えてしまいます）。
+innerHTML: 
+　文字列の中にあるHTMLタグ（<span> など）を解析して、
+　ブラウザに装飾として反映させます。
+　
