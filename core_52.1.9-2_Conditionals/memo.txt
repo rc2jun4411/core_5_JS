@@ -1,0 +1,100 @@
+ref 12. https://developer.mozilla.org/en-US/docs
+        /Learn_web_development/Core/Scripting/Conditionals
+    In this article;
+    ・You can have it on one condition!, no coding. 
+    ・if...else statements
+    ・switch statements
+    ・Ternary operator
+    ・Implementing a basic calendar
+    ・Adding more color choices
+    ・Summary
+
+2026-09-29
+folder: "core_52.1.9-2_Conditionals" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.9.1_Conditionals"
+                to   "core_52.1.9-2_Conditionals"    
+2. edit
+2.44 index.html, style.css per ref 12. 
+ ・ => ex-50.35 working, error?
+
+ask Gemini,
+Q1:
+para.textContentが undifined になる？ codeを送ります。
+
+A1:
+純一さん、コードをお送りいただきありがとうございます！
+Nesting（入れ子のif文）の練習ですね。
+para.textContent が undefined になってしまう原因は、para が
+HTMLの要素ではなく、ただの「文字列」として定義されているからです。
+
+💡 原因：なぜ undefined になるのか？
+コードの3行目で、以下のように定義されています。
+javascript
+let para = "temperature"; // " " で囲んでいるため、ただの文字列（String）
+
+これだと、変数 para の中身はただの "temperature" という7文字の
+テキストです。JavaScriptでは、ただの文字列に .textContent を
+つけようとすると、そんなプロパティは存在しないため 
+undefined（未定義） というエラーになってしまいます。
+
+🛠️ 修正方法
+これを解決するには、前回のコードと同じように 
+document.createElement("p") を使って、ちゃんとしたHTML要素
+（段落タグ） として作ってあげる必要があります。
+
+コードの最初の方（if 文よりも前）で、para をHTML要素として
+作成するように書き換えてみてください。
+
+修正後のコード
+javascript
+// case 5, Nesting if...else
+let choice = "sunny";
+let temperature = 75;
+
+// 【修正ポイント】ただの文字列ではなく、HTMLのp要素を作成します。
+//                文字列（String）とオブジェクト（DOM要素）の違い !!
+let para = document.createElement("p"); 
+
+if (choice === "sunny") {
+  if (temperature < 86) {
+    para.textContent = `It is ${temperature} degrees outside — nice and sunny. Let's go out to the beach, or the park, and get an ice cream.`;
+  } else if (temperature >= 86) {
+    para.textContent = `It is ${temperature} degrees outside — REALLY HOT! If you want to go outside, make sure to put some sunscreen on.`;
+  }
+}  
+
+console.log(`"temperature = ${temperature}"`);      // "temperature = 75"
+console.log(`"temperature = ${para.textContent}"`); // これで中身が表示されます！
+
+// check:
+const subject4 = "case 6.1, && — AND"; 
+const section4 = document.querySelector("#sect4");
+const para4 = document.createElement("p");
+para4.textContent  = `${subject4}\n`;
+para4.textContent += `"temperature = ${temperature}"\n`;
+// 【注意】para.textContent (if文の中にある) を結合します。
+para4.textContent += `Result: ${para.textContent}\n`; 
+section4.appendChild(para4);
+
+🔍 もう一つのポイント
+最後のチェック部分（para4）で表示させる時に、
+para4.textContent += "temperature = ${para.textContent}"\n; と書くと、
+少し文字が重なって分かりにくくなるかもしれません。
+上記のように Result: ${para.textContent} としておくと、if文の中でセットされた
+天気のメッセージがキレイに画面に出力されます！
+純一さん、let para = ... の部分を修正してみて、undefined が消えてメッセージが正しく表示されるようになったか確認してみてください！
+また、HTML側に `
+` が追加されているかも合わせてチェックしてみてくださいね。
+
+ ・ => ex-50.35 done!
+
+MDN ref 12. path;
+Learn
+Core learning modules
+JavaScript
+Conditionals
+
+所見: 使える !!
