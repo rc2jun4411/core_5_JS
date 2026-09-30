@@ -1,0 +1,230 @@
+ref 12. https://developer.mozilla.org/en-US/docs
+        /Learn_web_development/Core/Scripting/Conditionals
+    In this article;
+    ・You can have it on one condition!, no coding. 
+    ・if...else statements
+    ・switch statements
+    ・Ternary operator
+    ・Implementing a basic calendar
+    ・Adding more color choices
+    ・Summary
+
+2026-09-29
+folder: "core_52.1.9-2_Conditionals" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.9.1_Conditionals"
+                to   "core_52.1.9-2_Conditionals"    
+2. edit
+2.44 index.html, style.css per ref 12. 
+ ・ => ex-50.35 working, error?
+
+ask Gemini,
+Q1:
+para.textContentが undifined になる？ codeを送ります。
+
+A1:
+純一さん、コードをお送りいただきありがとうございます！
+Nesting（入れ子のif文）の練習ですね。
+para.textContent が undefined になってしまう原因は、para が
+HTMLの要素ではなく、ただの「文字列」として定義されているからです。
+
+💡 原因：なぜ undefined になるのか？
+コードの3行目で、以下のように定義されています。
+javascript
+let para = "temperature"; // " " で囲んでいるため、ただの文字列（String）
+
+これだと、変数 para の中身はただの "temperature" という7文字の
+テキストです。JavaScriptでは、ただの文字列に .textContent を
+つけようとすると、そんなプロパティは存在しないため 
+undefined（未定義） というエラーになってしまいます。
+
+🛠️ 修正方法
+これを解決するには、前回のコードと同じように 
+document.createElement("p") を使って、ちゃんとしたHTML要素
+（段落タグ） として作ってあげる必要があります。
+
+コードの最初の方（if 文よりも前）で、para をHTML要素として
+作成するように書き換えてみてください。
+
+修正後のコード
+javascript
+// case 5, Nesting if...else
+let choice = "sunny";
+let temperature = 75;
+
+// 【修正ポイント】ただの文字列ではなく、HTMLのp要素を作成します。
+//                文字列（String）とオブジェクト（DOM要素）の違い !!
+let para = document.createElement("p"); 
+
+if (choice === "sunny") {
+  if (temperature < 86) {
+    para.textContent = `It is ${temperature} degrees outside — nice and sunny. Let's go out to the beach, or the park, and get an ice cream.`;
+  } else if (temperature >= 86) {
+    para.textContent = `It is ${temperature} degrees outside — REALLY HOT! If you want to go outside, make sure to put some sunscreen on.`;
+  }
+}  
+
+console.log(`"temperature = ${temperature}"`);      // "temperature = 75"
+console.log(`"temperature = ${para.textContent}"`); // これで中身が表示されます！
+
+// check:
+const subject4 = "case 6.1, && — AND"; 
+const section4 = document.querySelector("#sect4");
+const para4 = document.createElement("p");
+para4.textContent  = `${subject4}\n`;
+para4.textContent += `"temperature = ${temperature}"\n`;
+// 【注意】para.textContent (if文の中にある) を結合します。
+para4.textContent += `Result: ${para.textContent}\n`; 
+section4.appendChild(para4);
+
+🔍 もう一つのポイント
+最後のチェック部分（para4）で表示させる時に、
+para4.textContent += "temperature = ${para.textContent}"\n; と書くと、
+少し文字が重なって分かりにくくなるかもしれません。
+上記のように Result: ${para.textContent} としておくと、if文の中でセットされた
+天気のメッセージがキレイに画面に出力されます！
+純一さん、let para = ... の部分を修正してみて、undefined が消えてメッセージが正しく表示されるようになったか確認してみてください！
+また、HTML側に `
+` が追加されているかも合わせてチェックしてみてくださいね。
+
+ => ex-50.35 case 5, done!
+ => ex-50.35 case 6.1 AND, done!
+ => ex-50.35 case 6.2 OR , done!
+ => ex-50.35 case 6.3 NOT, done!
+
+・switch statements  
+ => ex-50.36 case 7,・A switch example, done!
+
+・Ternary operator(三項演算子), "?", ":"
+ => ex-50.37 case 8 working error, 
+
+ask Gemini
+Q1:
+Ternary operator "?" ":" をやってます。
+backgroundとtextの色（白、黒）を切り替えます。がうまくいきません？
+codeを送ります。HTML:
+A1:
+コードの不具合の原因は、文字列のクォーテーション（' または "）の抜けと、
+変数名の不一致（select7 と select）です。
+JavaScriptでは、セレクタの指定（'select' や 'html'）、イベント名（'change'）、
+色の値（'black' など）やCSSの数値（'5px'）を文字列として扱う必要があるため、
+クォーテーションで囲む必要があります。
+また、const select7 で定義した変数名が、後半の select.addEventListener で 
+select になっているためエラーになります。
+
+修正した正しいJavaScriptコードは以下の通りです。
+修正済みのJSコード:
+javascript
+/* ex-50.37, Conditionals */
+// see ref. 12
+// ・Ternary operator
+
+const select = document.querySelector('#theme'); // または 'select' IDがthemeなので #theme が確実
+const html = document.querySelector('html');
+document.body.style.padding = '5px'; 
+
+function update(bgColor, textColor) {
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
+}
+
+select.addEventListener('change', () => {
+  select.value === 'black' ? update('black', 'white') : update('white', 'black');
+});
+
+Q2:
+白、黒）を切り替えできません。
+A2:
+背景と文字色の切り替えがまだ動かない原因は、最後のアドイベントリスナー
+の部分で、まだ変数名が select のままになっているためです
+（1行目で select7 という名前で定義されています）。
+JavaScriptの1行目で const select7 = ... と定義しているため、
+後ろのコードもすべて select7 に統一する必要があります。
+以下のように修正すると、正しく切り替わるようになります。
+修正済みのJSコード
+javascript
+/* ex-50.37, Conditionals */
+// see ref. 12
+// ・Ternary operator
+const select7 = document.querySelector("#theme");
+console.log(select7);
+const html = document.querySelector("html");
+document.body.style.padding = "5px";
+
+function update(bgColor, textColor) {
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
+}
+
+// 【修正】 select から select7 に変更しました
+select7.addEventListener("change", () =>
+  select7.value === "black" // ここも select7 に変更
+    ? update("black", "white")
+    : update("white", "black"),
+);
+
+Q3:
+html(ページ全体)=>切り替わった。<div id="div8">内のtext=>切り替わった。
+が、<div id="div7">内の<label>内のtext=>切り替わった。
+<a>内のtext=>切り替わった。
+あと、JS code先頭の<div id="div4"と<a>内のtext=>切り替わった。
+JS codeが複雑になったので、Turnary operatorだけのcodeにしてみます。
+A3:
+素晴らしい気づきです！ページ全体の html の色を変えたことで、
+他の関係ない要素（div4、div7、<a> タグなど）の文字色まで一緒に変わって
+しまったのですね。これは CSS の「親の文字色が子や孫に引き継がれる（継承される）」
+という性質によるものです。
+複雑な要素を一度すべて忘れて、三項演算子（Ternary operator）の動きだけに
+集中したシンプルなコードに書き直してみましょう。
+影響を受ける範囲を狭くするために、html 全体ではなく、ターゲットである 
+<section id="sect8">（または div8）の中だけの色が変わるコードに整理しました。
+
+三項演算子だけに集中したシンプルなコード
+html
+<section id="sect8">
+  <label for="theme">Select theme: </label>
+  <select id="theme">
+    <option value="white">White</option>
+    <option value="black">Black</option>
+  </select>
+  <h3>This is my website</h3>
+</section>
+
+javascript
+const select = document.querySelector("#theme");
+const targetSection = document.querySelector("#sect8"); // 変化させたいエリアだけを指定
+
+select.addEventListener("change", () => {
+  // 三項演算子：条件 ? 真の処理 : 偽の処理
+  select.value === "black" 
+    ? (targetSection.style.backgroundColor = "black", targetSection.style.color = "white") 
+    : (targetSection.style.backgroundColor = "white", targetSection.style.color = "black");
+});
+
+スッキリさせたポイント
+1. 影響を限定化: 
+  html ではなく #sect8 を対象にしたので、他の div4 や div7 には一切影響
+  しなくなります。
+2. 関数（update）をなくす: 
+  処理をシンプルに理解するため、関数を使わずに三項演算子の後ろに直接スタイル
+  変更を書いています。
+  まずはこのシンプルなコードで、狙った場所だけが「白・黒」に切り替わるか
+  試してみてください！
+
+このシンプルなコードで、三項演算子の動きはイメージ通りに確認できそうでしょうか？
+もし、カンマ , で処理を並べる書き方が見づらい場合は、元の update() 関数を
+組み合わせた形に戻すこともできますので、必要であれば言ってくださいね。
+
+
+
+
+
+MDN ref 12. path;
+Learn
+Core learning modules
+JavaScript
+Conditionals
+
+所見: 使える !!

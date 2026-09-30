@@ -89,7 +89,23 @@ para4.textContent += "temperature = ${para.textContent}"\n; と書くと、
 また、HTML側に `
 ` が追加されているかも合わせてチェックしてみてくださいね。
 
- ・ => ex-50.35 done!
+ => ex-50.35 case 5, done!
+ => ex-50.35 case 6.1 AND, done!
+ => ex-50.35 case 6.2 OR , done!
+ => ex-50.35 case 6.3 NOT, done!
+
+・switch statements  
+ => ex-50.36 case 7,・A switch example, done!
+
+・Ternary operator(三項演算子), "?", ":"
+ => ex-50.37 case 8 working error, 
+ask Gemini
+Q1:
+Ternary operator "?" ":" をやってます。
+backgroundとtextの色（白、黒）を切り替えます。がうまくいきません？codeを送ります。HTML:
+A1:
+
+
 
 MDN ref 12. path;
 Learn

@@ -1,0 +1,30 @@
+ref 12. https://developer.mozilla.org/en-US/docs
+        /Learn_web_development/Core/Scripting/Conditionals
+    In this article;
+    ・You can have it on one condition!, no coding. 
+    ・if...else statements
+    ・switch statements
+    ・Ternary operator
+    ・Implementing a basic calendar
+    ・Adding more color choices
+    ・Summary
+
+2026-09-30
+folder: "core_52.1.9-4_Conditionals calendar" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.9-3_Conditionals ex-50.37 only"   
+                to   "core_52.1.9-4_Conditionals calendar" 
+2. edit
+2.46 index.html, style.css per ref 12. 
+ ・ => ex-50.38 working,
+
+
+MDN ref 12. path;
+Learn
+Core learning modules
+JavaScript
+Conditionals
+
+所見: 使える ?
