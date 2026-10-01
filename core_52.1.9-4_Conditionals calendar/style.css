@@ -17,14 +17,17 @@ hr {
 }
 .hr1::after {
     background: white; /* none 透明*/
-    content: "'🩷'";
+    /*content: "'💚'";*/
+    content: "'🛠️'";
     padding: 4px;
     position: relative;
     top: -13px;
 }
 .hr2 {
+    /* position:absolute; /* ui １行目の下側にり付く */
     border: none;
-    height: 2px;
+    /* margin-top: 5px; 無効*/       
+    height: 2px; /* 線幅 */
     width: 70%;
     background-color: blue;
 }
@@ -59,7 +62,7 @@ h1 {
 }
 body {
     margin: 10px;
-    background: #f5f9fa;
+    background: #6ca8b7;
 }
 
 * {
@@ -73,10 +76,10 @@ ul {
 li {
     display: block;
     float: left;
-    width: 25%;
+    width: 14.2%;
     border: 2px solid white;
-    padding: 5px;
-    height: 40px;
+    padding: 6px;
+    height: 24px;
     background-color: #4a2db6;
     color: white;
 }

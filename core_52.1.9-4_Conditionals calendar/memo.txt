@@ -18,7 +18,137 @@ actions;
                 to   "core_52.1.9-4_Conditionals calendar" 
 2. edit
 2.46 index.html, style.css per ref 12. 
- ・ => ex-50.38 working,
+ ・ => ex-50.38 working 要,表示改良
+
+ask Gemini,
+Q1:
+<hr class="hr2">, <hr class="hr1">, <hr>
+を <ul></ul> <!--calendarマス目 -->の下に表示したい？ 
+<br>が効かない？
+A1:
+<br> や <hr> の位置がうまく反映されない原因は、JavaScript（index.js）
+側でカレンダーのマス目（<li> タグなど）を大量に生成して <ul> の中、
+もしくは <ul> の外側（section や div の中）に要素をどんどん追加
+（appendChild）してしまっているからだと予想されます。
+JavaScriptが動いたあとに要素がズレてしまっている可能性が高いので、
+HTML側で絶対にカレンダーの下に固定するエリアを作ってあげるのが
+一番の解決策です。
+🛠️ 修正方法：
+HTMLをこのように書き換えてみてください
+div1 の閉じタグ（</div>）の直前にあった <hr> グループを、div1 の外側に
+完全に追い出して、さらに分かりやすいように新しく <div id="output-area">
+ などの目印を作ってあげると間違いありません。
+html
+<body>
+  <a>"ex-50.38, JS Conditionals"<br></a>
+  
+  <div id="div1">=div1= ・Implementing a basic calendar<br><br>
+    <section>
+      <label for="month">Select month: </label>
+      <select id="month">
+        <option value="January">January</option>
+        <!-- (中略) -->
+        <option value="December">December</option>
+      </select>
+      <h1></h1> <!--月-->
+      <ul></ul> <!--calendarマス目 -->
+    </section>
+  </div> <!-- ここで div1 が完全に終わります -->
+
+  <!-- カレンダー領域（div1）の外側に配置します -->
+  <br>
+  <hr class="hr2">
+  <hr class="hr1">
+  <hr>
+
+  <!-- もし、この線の「下」に次のJSチェック用出力を出したい場合は、
+  ここに専用のdivを作っておきます -->
+  <div id="sect4"></div> 
+  <script src="index.js" defer></script>
+</body>
+
+💡 なぜ <br> が効かなかったの？（原因の解説）
+MDNのカレンダーチュートリアルでは、JavaScript側で以下のような
+処理が行われます。
+• ul.innerHTML = ''; で一度中身をリセットする
+• for ループを使って、1日から31日までの <li> 要素を大量に作って 
+appendChild する
+もし、JavaScriptのコード内で section.appendChild(...) や 
+div1.appendChild(...) のように、
+<ul> の外側の要素に対して何かを追加するコードが書かれていると、
+HTMLでせっかく下に書いていた <br> や <hr> の位置をJavaScriptが
+追い越して、さらに下に要素を追加してしまうことがあります。
+
+そのため、カレンダーの箱（div1）と、区切り線（<hr>）を完全に別々の
+グループにしてあげると、カレンダーが何日分膨らんでも、
+線は必ずその下に押し出されるようになります！
+ 
+・ => ex-50.38  working 要,表示改良 => 
+ html, css, js特に修正しなくて、表示できていた。done!
+
+ask Gemini, 
+Q2.1: 表の上部に曜日(sun mon tur wed thr fri sat)追加
+Q2.2: 年号(ex 2026の前後８年分から)をselect from: 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030
+Q2.3: 日と曜日を合わせて表示
+
+A2.1:
+まずは Q2.1の「表の上部に曜日を追加する」 の実装ですね。
+カレンダーのマス目（日付）を表示している <ul> タグの上に、新しく 曜日専用の <ul> タグ を追加し、CSSで横並びにさせるのが一番きれいでスマートな方法です。
+HTMLとCSS（またはJavaScript）を以下のように少し変更してみましょう。
+🛠️ 1. HTMLの修正
+現在ある <ul></ul> <!--calendarマス目 --> のすぐ上に、曜日用の <ul>（クラス名 weekdays）を新しく追加します。
+html
+      <h1></h1> <!--月-->
+      
+      <!-- 【追加】曜日を表示するエリア -->
+      <ul class="weekdays">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+
+      <ul></ul> <!--calendarマス目 （日付用）-->
+コードは注意してご使用ください。
+(※ tur と thr は、一般的に英語圏でカレンダーに使われる Tue (Tuesday) と Thu (Thursday) に修正しています。)
+🎨 2. CSSの修正（もしスタイルを当てている場合）
+カレンダーの日付を横並び（7個ずつ並べるなど）にするために、CSSを使っているかと思います。新しい曜日の列もきれいに横並びにするために、CSSに以下の設定を追加するか、確認してみてください。
+css
+/* 曜日と日付のリスト（ul）の共通スタイル */
+.weekdays, 
+#div1 ul:not(.weekdays) {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 曜日と日付の各マス（li）を、7等分（100% ÷ 7 ≒ 14.28%）にして横並びにする */
+.weekdays li,
+#div1 ul:not(.weekdays) li {
+  width: 14.28%;
+  text-align: center;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+
+/* 曜日の文字だけ少し太く、色を変えるとおしゃれになります */
+.weekdays li {
+  font-weight: bold;
+  color: #666;
+}
+
+folder: "core_52.1.9-5_Conditionals calendar mod" 
+ex-50.39:
+
+A2.2: 
+
+A2.3: 
+
 
 
 MDN ref 12. path;
@@ -26,5 +156,6 @@ Learn
 Core learning modules
 JavaScript
 Conditionals
+
 
 所見: 使える ?

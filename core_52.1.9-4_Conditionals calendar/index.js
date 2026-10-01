@@ -15,7 +15,18 @@ select.addEventListener("change", () => {
 function createCalendar(month) {
   let days = 31;
 
-  // ADD CONDITIONAL HERE
+  if (month === "February") 
+    {
+    days = 28;
+  } 
+  else if (
+    month === "April" ||
+    month === "June" ||
+    month === "September" ||
+    month === "November"
+  ) {
+    days = 30;
+  }
 
   list.textContent = "";
   h1.textContent = month;
