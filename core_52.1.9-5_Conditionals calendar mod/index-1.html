@@ -1,0 +1,74 @@
+<!-- C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.9-4_Conditionals calendar\index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <title>JS Conditionals</title>
+</head>
+
+<body>
+<a>"ex-50.38, JS Conditionals"<br></a>
+  <div id="div1">=div1= ・Implementing a basic calendar<br><br>
+    <section>
+      <!-- 【追加】年を選ぶセレクトボックス（最初は空っぽ）per A2.2 -->
+      <label for="year">Select year: </label>
+      <select id="year"></select>
+      
+      <label for="month">Select month: </label>
+      <select id="month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+      <h1></h1> <!--月-->
+
+      <!--mod. A2.1 from here to =NG=
+      <!- 【追加】曜日を表示するエリア
+      <!-<ul class="weekdays">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+      <!-mod. A2.1 there -->
+
+      <!--mod. A2.1.1 from here to  =working good= -->
+      <!-- 【修正】日付のulとは完全に違うタグ（pとspan）で曜日を作ります -->
+      <p class="weekdays-header">
+        <span style="color: red;">Sun</span>
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span style="color: blue;">Sat</span>
+      </p>
+
+      <ul></ul> <!--calendarマス目 -->
+    </section>
+  </div> <!-- ここで div1 が完全に終わります -->
+  
+  <!-- カレンダー領域（div1）の外側に配置します -->
+  <hr class="hr2">
+  <hr class="hr1">
+  <hr>
+    <script src="index.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+ref 12. https://developer.mozilla.org/en-US/docs
+        /Learn_web_development/Core/Scripting/Conditionals
+    In this article;
+    ・You can have it on one condition!, no coding. 
+    ・if...else statements
+    ・switch statements
+    ・Ternary operator
+    ・Implementing a basic calendar
+    ・Adding more color choices
+    ・Summary
+
+2026-10-1
+folder: "core_52.1.9-5_Conditionals calendar mod" 
+
+actions;
+1. Preparaton
+    copy folder from "core_52.1.9-4_Conditionals calendar" 
+                to   "core_52.1.9-5_Conditionals calendar mod"
+2. edit
+2.47 index.html, style.css per Gemini A2.1 
+
+ask Gemini, 
+Q2.1: => ex-50.39, 
+  表の上部に曜日(sun mon tur wed thr fri sat)追加
+
+TBC:
+Q2.2: 年号(ex 2026の前後８年分から)をselect from: 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030
+Q2.3: 日と曜日を合わせて表示
+
+A2.1:
+まずは Q2.1の「表の上部に曜日を追加する」 の実装ですね。
+カレンダーのマス目（日付）を表示している <ul> タグの上に、新しく 曜日専用の <ul> タグ を追加し、CSSで横並びにさせるのが一番きれいでスマートな方法です。
+HTMLとCSS（またはJavaScript）を以下のように少し変更してみましょう。
+🛠️ 1. HTMLの修正
+現在ある <ul></ul> <!--calendarマス目 --> のすぐ上に、曜日用の <ul>（クラス名 weekdays）を新しく追加します。
+html
+      <h1></h1> <!--月-->
+      
+      <!-- 【追加】曜日を表示するエリア -->
+      <ul class="weekdays">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+
+      <ul></ul> <!--calendarマス目 （日付用）-->
+コードは注意してご使用ください。
+(※ tur と thr は、一般的に英語圏でカレンダーに使われる Tue (Tuesday) と Thu (Thursday) に修正しています。)
+🎨 2. CSSの修正（もしスタイルを当てている場合）
+カレンダーの日付を横並び（7個ずつ並べるなど）にするために、CSSを使っているかと思います。新しい曜日の列もきれいに横並びにするために、CSSに以下の設定を追加するか、確認してみてください。
+css
+/* 曜日と日付のリスト（ul）の共通スタイル */
+.weekdays, 
+#div1 ul:not(.weekdays) {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 曜日と日付の各マス（li）を、7等分（100% ÷ 7 ≒ 14.28%）にして横並びにする */
+.weekdays li,
+#div1 ul:not(.weekdays) li {
+  width: 14.28%;
+  text-align: center;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+
+/* 曜日の文字だけ少し太く、色を変えるとおしゃれになります */
+.weekdays li {
+  font-weight: bold;
+  color: #666;
+}
+
+
+folder: "core_52.1.9-5_Conditionals calendar mod" 
+ex-50.39:
+
+Q2.1.1: 日付の真上にきれいに曜日が並びません（表示なし？）
+Q2.1.2: 日付けが bold, #666になりました？
+
+A2.1:
+原因は、私が先ほど提案したCSSの指定が、MDNの元のCSS
+（特に日付用のスタイル）とぶつかって上書きしてしまったためです。
+MDNのチュートリアルでは、日付の横並びに flex ではなく 
+float や grid を使っていることが多いため、元のデザインを
+崩さないように一番シンプルで安全な方法に修正しましょう！
+JavaScript（index.js）は一切いじらず、HTMLとCSSを以下のように
+直してみてください。
+
+🛠️ 1. HTMLの修正
+曜日を表示する部分を <ul> ではなく、シンプルに文字を並べる形
+（<p> タグの中に <span> を並べる）に変更します。
+これで日付のスタイル（ul や li）と混ざらなくなります。
+html
+      <h1></h1> <!--月-->
+      
+      <!-- 【修正】日付のulとは完全に違うタグ（pとspan）で曜日を作ります -->
+      <p class="weekdays-header">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </p>
+
+      <ul></ul> <!--calendarマス目 （日付用。ここは元のまま）-->
+
+🎨 2. CSSの修正
+先ほど追加したCSSは一度すべて削除していただき、代わりに以下の
+シンプルなスタイルをCSSファイルの一番下に追加してください。
+css
+/* 曜日全体の横幅をカレンダー（ul）と同じにします */
+.weekdays-header {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 7つの曜日をきれいに7等分して横並びにします */
+.weekdays-header span {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;  /* 曜日を太字に */
+  color: #2b2b2b;     /* 曜日の色を少し濃いめに */
+  padding: 5px 0;
+}
+completed !!
+
+A2.2: 
+JavaScriptの中に備わっている Date オブジェクト（日付を扱う標準機能）
+ を使えば、現在の年（2026年）を自動で取得して、その前後8年分の
+ 選択肢をプログラムでスマートに作ることができます！
+まずは、HTMLに「年」を選ぶためのセレクトボックスを追加しましょう。
+
+🛠️ 1. HTMLの修正
+現在ある「月」を選ぶ <select id="month"> のすぐ上（またはすぐ下）
+に、新しく「年」を選ぶための <select id="year"></select> を
+追加します。
+中身（選択肢）はJavaScriptで自動生成するため、ここでは空っぽで大丈夫です。
+html
+    <section>
+      <!-- 【追加】年を選ぶセレクトボックス（最初は空っぽ） -->
+      <label for="year">Select year: </label>
+      <select id="year"></select>
+
+      <label for="month">Select month: </label>
+      <select id="month">
+        <option value="January">January</option>
+        <!-- （中略：12月まで） -->
+      </select>
+
+📜 2. JavaScript（index.js）の修正
+index.js のファイルを開き、コードの一番上（または変数定義が集まって
+いる場所）に、以下のコードを追加してください。
+現在の年から前後8年分（2018年〜2034年）の選択肢を自動的に作り、
+さらに現在の年（2026年）を最初から選択状態にします。
+javascript
+// 【追加】「年」のセレクトボックスをJavaScriptに連れてきます
+const yearSelect = document.querySelector("#year");
+
+// A2.2.1: 現在の「年」を自動取得（2026年が取れます）
+const currentYear = new Date().getFullYear(); 
+
+// A2.2.2: 前後8年分（マイナス8年からプラス8年まで）のループを
+回して選択肢を作ります
+for (let i = -8; i <= 8; i++) {
+  const year = currentYear + i;
+  const option = document.createElement("option");
+  option.value = year;
+  option.textContent = year;
+  
+  // もしループ中の年が「現在の年（2026）」と同じなら、
+  最初から選択状態（selected）にします
+  if (year === currentYear) {
+    option.selected = true;
+  }
+  
+  yearSelect.appendChild(option);
+}
+
+💡 このコードのポイント（Poco a poco 解説）
+• new Date().getFullYear(): パソコンの設定から
+「現在の西暦」を自動的に数字で取ってくる命令です [1]。
+これでコードが2026年に実行されれば自動で 2026 になります。
+
+• for (let i = -8; i <= 8; i++): -8 から +8 まで
+合計17回ループを回します。
+
+• currentYear + i を計算することで、2026 - 8（2018年）
+から 2026 + 8（2034年）までの選択肢が順番に作成されて、
+セレクトボックス（#year）の中にどんどん追加されます！
+
+純一さん、まずはこのコードを追加してみて、
+「Select year」のセレクトボックスが表示され、
+2026年を中心に前後8年分の数字がずらりと並びましたでしょうか？
+確認ができたら、次は「年と月を連動させて、
+実際にカレンダーの日数を変える（うるう年の対応など）」
+の部分に繋げていきましょう！
+Q2.2.3:
+2026年を中心に前後8年分の数字がずらりと並びました.。
+長いので、前後4年分に変えました。
+
+Q2.3: 
+日と曜日を合わせて表示
+A2.3:
+いま index.js にある、「月（month）が変わったときに日数を計算している
+部分（addEventListener や select.onchange など）」のコードを
+見せてください。
+
+Q2.3.1:
+select.addEventListener("change", () => {
+  const choice = select.value;
+  createCalendar(choice);
+}); が、現在のJSでは、select.onchangeは見つかりません？
+
+A2.3.1:
+🛠️ Q2.3「日と曜日を合わせて表示」へ向けた改良案
+今回は「月」だけでなく、新しく作った「年（yearSelect）」が変更されたときもカレンダーを新しく作り直す（再描画する）必要があります。
+1つの関数（createCalendar）に、年と月の両方を渡して計算する形にレベルアップさせてみましょう！
+複数のセレクトボックスを監視する場合は、上書きの心配がない addEventListener を使うのが今のプログラミングの主流（ベストプラクティス）です。
+現在のイベントリスナー部分と、createCalendar 関数の中身を以下のように書き換えてみてください。
+javascript
+// 「月」が変更されたとき
+select.addEventListener("change", () => {
+  createCalendar(yearSelect.value, select.value);
+});
+
+// 【追加】「年」が変更されたときもカレンダーを更新する
+yearSelect.addEventListener("change", () => {
+  createCalendar(yearSelect.value, select.value);
+});
+
+// 関数を (year, month) の2つを受け取れるようにパワーアップ！
+function createCalendar(year, month) {
+  let days = 31;
+
+  // 2.3.1: うるう年の判定（年が4で割り切れて、100で割り切れない、または400で割り切れる）
+  if (month === "February") {
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    days = isLeapYear ? 29 : 28; // うるう年なら29日、違えば28日
+  } 
+  else if (
+    month === "April" ||
+    month === "June" ||
+    month === "September" ||
+    month === "November"
+  ) {
+    days = 30;
+  }
+
+  list.textContent = "";
+  h1.textContent = `${year} - ${month}`; // タイトルに年も表示
+
+  // 月の名前を「数字」に変換する配列（Dateオブジェクトで使うため。1月は0、2月は1...）
+  const monthsArr = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const monthIndex = monthsArr.indexOf(month);
+
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+
+    // 2.3.2: 各日付の曜日を自動で取得する
+    // 例: 2026年1月1日の曜日オブジェクトを作る
+    const dateObj = new Date(year, monthIndex, i); 
+    
+    // 曜日を日本語や英語の文字にするための配列
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayName = dayNames[dateObj.getDay()]; // 0が日曜日、6が土曜日を返します
+
+    // 2.3.3: 「1 (Thu)」のような形でテキストをセット
+    listItem.textContent = `${i} (${dayName})`;
+    
+    list.appendChild(listItem);
+  }
+}
+
+// 最初の表示（現在の年と1月でスタート）
+select.value = "January";
+createCalendar(currentYear, "January"); 
+
+Q2.3.2:
+表示が崩れました?codeを送りましょうか? JK
+A2.3.2:
+純一さん、画面のスクリーンショットをありがとうございます！
+現状がとてもよく分かりました。
+確かに表示が少し崩れて、カレンダーの数字の下に (Sun)(Mon)... 
+という文字がはみ出してしまっていますね。
+画像の中心にあるHTMLコード（39行目〜50行目あたり）を見ると、
+原因が見つかりました！
+以前試したときの <li>Sun</li> や <li>Mon</li> というタグが、
+コメントアウトされずにそのまま残ってしまっているため、それが画面の
+下の方に出てきてしまっています。
+ぜひ、現在のHTMLとJavaScript（index.js）のコードを両方送ってください！
+コードを受け取りましたら、以下の2点をきれいに整理した最新のコードにして
+お返しします！
+1. HTMLの消し忘れたタグのクリーニング
+2. 「年」と「月」がどちらも正しく連動する最新のイベントリスナー
+（addEventListener）のドッキング
+純一さん、HTMLとJavaScriptのコードのコピーをお待ちしています！
+
+Q2.3.3:
+code送ります。HTML: <body>
+A2.3.3:
+画面が崩れてしまった原因が2つ見つかりました。
+どちらも非常に鋭い視点でコードを拡張したからこそ発生した、
+ステップアップのためのバグです！
+💡 原因はこの2点です！
+1. HTMLのコメントアウト（不要なタグを隠す機能）の書き間違い
+<!--mod. A2.1 ... の部分で、ハイフンが足りなかったり（<!-）、
+入れ子になったりしていたため、ブラウザが「コメント」だと認識できず、
+古い <li> タグが画面にそのまま表示されていました。
+
+2. JavaScriptの querySelector("select") の罠
+新しく「年（#year）」のセレクトボックスを一番上に追加したため、
+document.querySelector("select") と書くと、「月」ではなく
+「年」のセレクトボックスを捕まえてしまうようになっていました。
+
+
+🛠️ 1. 修正版 HTML コード
+（不要な古いコードをきれいに削除し、コメントアウトの書き方を直しました）
+html
+<body>
+  <a>"ex-50.38, JS Conditionals"<br></a>
+  <div id="div1">=div1= ・Implementing a basic calendar<br><br>
+    <section>
+      <!-- 【追加】年を選ぶセレクトボックス per A2.2 -->
+      <label for="year">Select year: </label>
+      <select id="year"></select>
+      
+      <label for="month">Select month: </label>
+      <select id="month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+      <h1></h1> <!--月-->
+
+      <!-- 【修正】日曜日（Sun）を赤、土曜日（Sat）を青に色付け -->
+      <p class="weekdays-header">
+        <span style="color: red;">Sun</span>
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span style="color: blue;">Sat</span>
+      </p>
+
+      <ul></ul> <!--calendarマス目 -->
+    </section>
+  </div>
+  
+  <hr class="hr2">
+  <hr class="hr1">
+  <hr>
+  <script src="index.js" defer></script>
+</body>
+
+
+📜 2. 修正版 JavaScript（index.js）コード
+（1行目を querySelector("#month") に修正しました。
+他は純一さんの書いた素晴らしいロジックのままです！）
+javascript
+/* ex-50.38, Conditionals */
+// see ref. 12
+// ・Implementing a basic calendar
+
+// 【大修正】ただの "select" から、確実に月を狙うために "#month" に変更します！
+const select = document.querySelector("#month"); 
+const list = document.querySelector("ul");
+const h1 = document.querySelector("h1");
+
+// 【追加】「年」のセレクトボックスをJavaScriptに連れてきます
+const yearSelect = document.querySelector("#year");
+
+// 2.2.1: 現在の「年」を自動取得
+const currentYear = new Date().getFullYear(); 
+
+// 2.2.2: 前後4年分のループを回して選択肢を作ります
+for (let i = -4; i <= 4; i++) {
+  const year = currentYear + i;
+  const option = document.createElement("option");
+  option.value = year;
+  option.textContent = year;
+  
+  if (year === currentYear) {
+    option.selected = true;
+  }
+  
+  yearSelect.appendChild(option);
+}
+
+// 「月」が変更されたとき
+select.addEventListener("change", () => {
+  createCalendar(yearSelect.value, select.value);
+});
+
+// 「年」が変更されたときもカレンダーを更新する
+yearSelect.addEventListener("change", () => {
+  createCalendar(yearSelect.value, select.value);
+});
+
+// 関数を (year, month) の2つを受け取れるようにパワーアップ！
+function createCalendar(year, month) {
+  let days = 31;
+
+  // 2.3.1: うるう年の判定
+  if (month === "February") {
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    days = isLeapYear ? 29 : 28; 
+  } 
+  else if (
+    month === "April" ||
+    month === "June" ||
+    month === "September" ||
+    month === "November"
+  ) {
+    days = 30;
+  }
+
+  list.textContent = "";
+  h1.textContent = `${year} - ${month}`; // タイトルに年も表示
+
+  // 月の名前を「数字」に変換する配列
+  const monthsArr = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const monthIndex = monthsArr.indexOf(month);
+
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+
+    // 2.3.2: 各日付の曜日を自動で取得する
+    const dateObj = new Date(year, monthIndex, i); 
+    
+    // 曜日を英語の文字にするための配列
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayName = dayNames[dateObj.getDay()]; 
+
+    // 2.3.3: 「1 (Thu)」のような形でテキストをセット
+    listItem.textContent = `${i} (${dayName})`;
+    
+    list.appendChild(listItem);
+  }
+}
+
+// 最初の表示（現在の年と1月でスタート）
+select.value = "January";
+createCalendar(currentYear, "January");
+
+純一さん、この2つのファイルに置き換えてみて、カレンダーの下のはみ出しが消えて、日付の横に正しい曜日が表示されるようになったか確認してみてください！
+特に 2024年の2月（うるう年で29日まである年） に切り替えたときに、日数が29日になるかも一緒にチェックしてみると面白いですよ！結果を楽しみにしています。
+
+
+
+
+
+
+MDN ref 12. path;
+Learn
+Core learning modules
+JavaScript
+Conditionals
+
+
+所見: 使える ?

@@ -1,0 +1,131 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.9-4_Conditionals calendar\style.css */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+.hr1 {
+    border: none;
+    border-top: 3px double #333333;
+    color: #333333;
+    overflow: visible;
+    text-align: center;
+    height: 4px;
+    width: 80%;
+    background-color: lightgreen;
+}
+.hr1::after {
+    background: white; /* none 透明*/
+    /*content: "'💚'";*/
+    content: "'🛠️'";
+    padding: 4px;
+    position: relative;
+    top: -13px;
+}
+.hr2 {
+    /* position:absolute; /* ui １行目の下側にり付く */
+    border: none;
+    /*margin-top: 5px; /*無効*/       
+    height: 2px; /* 線幅 */
+    width: 70%;
+    background-color: blue;
+}
+html {
+    font-family: sans-serif;
+    font-size:14px;
+    max-width: 280px;
+    min-width: 160px;
+}
+p {
+    color: purple;
+    margin: 0.5em 0;
+    /* これを入れると、JSのテンプレートリテラル内の
+       改行がそのまま画面に出ます */
+    white-space: pre-wrap;
+}
+
+/* Conditionals */
+/* ex-50.38 */
+#div {
+    background-color: lightblue;
+}
+
+h1 {
+    font-size: 16px;
+}
+.a11y-label {
+    margin: 0;
+    text-align: right;
+    font-size: 0.7rem;
+    width: 98%;
+}
+body {
+    margin: 10px;
+    background: #6ca8b7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    display: block;
+    float: left;
+    width: 14.28%;
+    border: 2px solid white;
+    padding: 6px;
+    height: 24px;
+    background-color: #4a2db6;
+    color: white;
+}
+
+/*mod A2.1/Gemini */
+/* 曜日と日付のリスト（ul）の共通スタイル 
+.weekdays,
+#div1 ul:not(.weekdays) {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/* 曜日と日付の各マス（li）を、
+ 7等分（100% ÷ 7 ≒ 14.28%）にして横並びにする 
+.weekdays li,
+#div1 ul:not(.weekdays) li {
+    width: 14.28%;
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+/* 曜日の文字だけ少し太く、色を変えると
+おしゃれになります 
+.weekdays li {
+    font-weight: bold;
+    color: #666;
+}*/
+
+/*mod A2.1.1/Gemini */
+/* 曜日全体の横幅をカレンダー（ul）と同じにします */
+.weekdays-header {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* 7つの曜日をきれいに7等分して横並びにします */
+.weekdays-header span {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    /* 曜日を太字に */
+    color: rgb(115, 60, 60);
+    /* 曜日の色を少し濃いめに */
+    padding: 5px 0;
+}
