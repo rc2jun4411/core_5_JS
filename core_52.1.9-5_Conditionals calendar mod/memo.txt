@@ -128,7 +128,7 @@ css
   color: #2b2b2b;     /* 曜日の色を少し濃いめに */
   padding: 5px 0;
 }
-completed !!
+A2.1, completed !!
 
 A2.2: 
 JavaScriptの中に備わっている Date オブジェクト（日付を扱う標準機能）
@@ -203,6 +203,7 @@ for (let i = -8; i <= 8; i++) {
 Q2.2.3:
 2026年を中心に前後8年分の数字がずらりと並びました.。
 長いので、前後4年分に変えました。
+A2.2, completed !!
 
 Q2.3: 
 日と曜日を合わせて表示
@@ -464,12 +465,246 @@ function createCalendar(year, month) {
 select.value = "January";
 createCalendar(currentYear, "January");
 
-純一さん、この2つのファイルに置き換えてみて、カレンダーの下のはみ出しが消えて、日付の横に正しい曜日が表示されるようになったか確認してみてください！
-特に 2024年の2月（うるう年で29日まである年） に切り替えたときに、日数が29日になるかも一緒にチェックしてみると面白いですよ！結果を楽しみにしています。
+純一さん、この2つのファイルに置き換えてみて、カレンダーの下のはみ出し
+が消えて、日付の横に正しい曜日が表示されるようになったか確認してみて
+ください！
+特に 2024年の2月（うるう年で29日まである年） に切り替えたときに、
+日数が29日になるかも一緒にチェックしてみると面白いですよ！
+結果を楽しみにしています。
 
 
 
+2026-10-2
+Q2.3.4: 
+隠れていた古い <li> タグは　ありません。
+code(html,css,js)全文を送りましょうか？
+A2.3.4:
+💡 原因：なぜ表示が崩れたのか？（CSSの「高さ」の仕業でした）
+原因は index.css の li タグに対する設定 にありました。
+CSSコードの84行目あたりに、以下の記述があります。
+css
+li {
+    display: block;
+    float: left;
+    width: 14.28%;
+    border: 2px solid white;
+    padding: 6px;
+    height: 24px;         /* ⚠️ 原因はコレです！ */
+    background-color: #4a2db6;
+    color: white;
+}
 
+ここで height: 24px;（マスの高さを24ピクセルに固定する） という命令が効いています。
+元々のMDNのコードでは、マスの中身は「数字（例：1）」だけだったので24pxの高さでぴったり収まっていました。
+しかし今回、純一さんと一緒にコードをパワーアップさせて「1 (Thu)」のように文字数を増やしたため、24pxの高さの中に文字が収まりきらなくなり、箱（紫色の背景）を突き破って下にはみ出してしまったのです。
+そのため、次の行の数字（例：2）の箱のすぐ右側に、はみ出した (Thu) などの白い文字が潜り込むように見えて、表示がぐちゃぐちゃに崩れてしまっていました。
+🛠️ 解決方法
+index.css を1箇所だけ修正しましょう！
+マスの高さ（height）の固定を解除して、文字の量に合わせて自動で箱が広がるように height: auto; に変更するか、少し高さを広げてあげます。また、文字が中央に揃うように調整を足すと完璧です。
+index.css の li の部分を、以下のように書き換えてみてください。
+css
+li {
+    display: block;
+    float: left;
+    width: 14.28%;
+    border: 2px solid white;
+    padding: 6px;
+    
+    /* 【修正ポイント】固定だった 24px を auto（自動調整）にします */
+    height: auto; 
+    
+    /* 【おまけの調整】文字を真ん中寄せにして、少し上下に余裕を持たせます */
+    text-align: center;
+    font-size: 11px; /* 文字がはみ出さないように少しだけ小さくします */
+    
+    background-color: #4a2db6;
+    color: white;
+}
+
+🎈 さらにもう一工夫（曜日の位置合わせ）
+HTMLの上部に追加した曜日ヘッダー（Sun Mon Tue...）と、日付のマスの位置をぴったり縦に揃えるために、index.css の一番最後（.weekdays-header span の中）に、日付のマスと同じ余白（box-sizing）の設定を少しだけ足しておきます。
+css
+/* 7つの曜日をきれいに7等分して横並びにします */
+.weekdays-header span {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(115, 60, 60);
+    padding: 5px 0;
+    
+    /* 【追加】これを入れると、下のカレンダーのマスと縦の位置がピタッと揃います！ */
+    box-sizing: border-box; 
+}
+コードは注意してご使用ください。
+純一さんが書いてくれた HTML と JavaScript（index.js）のコードは、1文字のミスもなく完璧でした！
+CSSの「高さ固定」という意外な落とし穴が原因だったわけです。
+純一さん、index.css の li の height: 24px; を height: auto; に変更 してみて、画面のはみ出しが消えてスッキリ美しいカレンダーに変身したか、ぜひ確認してみてください！
+無事に成功したら、このカレンダーは世界にひとつだけのオリジナル高機能カレンダーの完成になります！お返事お待ちしています。
+
+Q2.3.4:
+崩れは直りました、次は　Q2.3: 日と曜日を合わせて表示お願いします。
+2026 October 1(Thu)は良いです！
+
+A2.3.4:
+今の画面を見ると、曜日のヘッダー（一番上の Sun Mon Tue...）の
+真下にある「1日」が (Thu) になっています。つまり、木曜日なのに 
+Sun（日曜日）の列の下から始まってしまっているため、曜日がズレて
+しまっています。
+本物のカレンダーのように、「1日の曜日の位置まで、空白のマスを
+入れて右にずらす処理」を追加して、Q2.3を完璧に完成させましょう！
+
+JavaScript（index.js）の createCalendar 関数の中にある 
+for ループの直前に、少しだけコードを追加します。
+
+🛠️ JavaScript（index.js）の修正
+index.js の下の方にある、for (let i = 1; i <= days; i++) の
+部分を探してください。その手前に、以下の【追加：空白マスを作る
+ループ】をドッキングさせます。
+
+javascript
+  list.textContent = "";
+  h1.textContent = `${year} - ${month}`; // タイトルに年も表示
+
+  // 月の名前を「数字」に変換する配列
+  const monthsArr = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const monthIndex = monthsArr.indexOf(month);
+
+  // ========================================================
+  // 💡【Q2.3.4 追加】1日の曜日を調べて、その分だけ前に空白のマス（li）を作る
+  // ========================================================
+  const firstDayObj = new Date(year, monthIndex, 1);
+  const startDay = firstDayObj.getDay(); // 1日の曜日（0:日 〜 6:土）を取得します
+
+  // 1日が始まる曜日まで、中身が空っぽの白い箱（li）を先に並べます
+  for (let j = 0; j < startDay; j++) {
+    const emptyItem = document.createElement("li");
+    emptyItem.style.background = "transparent"; // 背景を透明にします
+    emptyItem.style.border = "2px solid transparent"; // 枠線も消します
+    list.appendChild(emptyItem);
+  }
+  // ========================================================
+
+  // ここから下は、純一さんが書いた元々の「日付を入れるループ」です（変更なし）
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+
+    // 各日付の曜日を自動で取得する
+    const dateObj = new Date(year, monthIndex, i); 
+    
+    // 曜日を英語の文字にするための配列
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayName = dayNames[dateObj.getDay()]; 
+
+    // 「1 (Thu)」のような形でテキストをセット
+    listItem.textContent = `${i} (${dayName})`;
+    
+    list.appendChild(listItem);
+  }
+
+💡 このコードの仕組み（Poco a poco 解説）
+• firstDayObj.getDay(): 例えば「2026年1月1日」の曜日を調べます。
+　2026年1月1日は木曜日なので、数字の 4 が返ってきます。
+• for (let j = 0; j < startDay; j++): 数字の 4 の分だけ、中身
+　が空っぽの透明なマス（li）を4個作成して、1日の前にポンポン
+　ポンポンと置きます。
+• これにより、1日のマスが右に4つ押し出され、上のヘッダーの 
+　Thu（木曜日）の真下ぴったりから1日がスタート するようになります！
+
+純一さん、この「空白を入れる処理」を追加してみて、1日のマスが正しい
+曜日の真下にピタッと移動したか、画面を確認してみてください！
+2026年1月なら木曜日（Thu）の下から、他の月に変えたらその月の1日の
+曜日の下から、ちゃんとスタートするようになるはずです。
+うまくいきそうでしょうか？
+
+A2.3, completed
+Q2.3.5:
+完璧です!Geminiさん. ありがとうございました。JK good lesson one 
+after anoyher.(マス内の曜日は消しました。)
+
+Q2.3.6:
+機能を追加（今日の日付のマスだけ背景色を変える）をやってみたい！
+A2.3.6:
+これを実現するには、JavaScriptのループ（for文）の中で、「今作って
+いるマスの年月日」が「本当の今日の年月日」とぴったり一致するか
+どうかを if 文で判定し、一致したときだけCSSで背景色を変える処理
+を追加します。
+
+JavaScript（index.js）の createCalendar 関数の中を、
+以下のように少しパワーアップさせてみましょう！
+
+🛠️ JavaScript（index.js）の修正
+index.js の日付を1日から並べている for (let i = 1; i <= days; i++) のループの中に、【今日の日付を判定する処理】を新しくドッキングします。
+javascript
+  // （前略：空白マスを作るループのすぐ下から）
+
+  // 💡【今日の日付の背景を変えるための準備】
+  // パソコンの時計から、本物の「今日」の年・月・日をそれぞれ数字で取得します
+  const today = new Date();
+  const realYear = today.getFullYear();
+  const realMonth = today.getMonth(); // 0〜11の数字
+  const realDate = today.getDate();   // 1〜31の数字
+
+  // 日付を入れるループ（ここを少しパワーアップします）
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+
+    // 各日付の曜日を自動で取得する
+    const dateObj = new Date(year, monthIndex, i); 
+    
+    // 曜日を英語の文字にするための配列
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayName = dayNames[dateObj.getDay()]; 
+
+    // 【純一さんが改良した通り、数字だけにします】
+    listItem.textContent = i;
+    
+    // ========================================================
+    // 💡【追加】もし、今作っているマスが「本物の今日」と同じなら背景色を変える！
+    // ========================================================
+    // JavaScriptの中の「選択されている年・月」と「ループの数字 i 」が、
+    // 本物の「年・月・日」とすべて一致するかを調べます
+    if (
+      Number(year) === realYear && 
+      monthIndex === realMonth && 
+      i === realDate
+    ) {
+      listItem.style.backgroundColor = "#ffeb3b"; // 今日のマスの背景を「鮮やかな黄色」に！
+      listItem.style.color = "#333";             // 文字を読みやすくするために「濃いグレー」に！
+      listItem.style.fontWeight = "bold";         // 文字を太字に！
+      listItem.style.borderColor = "#ff9800";     // 枠線を「オレンジ色」にして目立たせます！
+    }
+    // ========================================================
+
+    list.appendChild(listItem);
+  }
+}
+
+// 最初の表示（現在の年と1月でスタート）
+select.value = "January";
+createCalendar(currentYear, "January");
+
+💡 このコードのポイント（Poco a poco 解説）
+• Number(year): セレクトボックスから取得した「年」は文字型（String）になっていることがあるため、
+  Number() を使って数字（Number）に変換し、本物の今年の数字と正しく
+  比較できるようにしています。
+• === で3つの条件を合体: 「年が今年」かつ（&&）「月が今月」かつ（&&）
+ 「日が今日（i）」という3つの条件がすべて揃ったときだけ、if 文の中の
+ 着色処理が実行されます。
+• 今日は 2026年の10月2日 [2026] ですので、セレクトボックスを「2026年」
+  の「October」に切り替えたときに、2 のマスだけがパッと黄色に変わるはず
+  です！
+
+Q2.3.7:
+自習で、カレンダー編をさらに極める（例：土曜日のマスの背景を薄い青、
+日曜日のマスの背景を薄い赤にする、など）。をやってみます。
+1.マス目の色
+2.textの色
+
+A2.3.7:
+if 文や曜日の判定（getDay()）を応用すること。
 
 
 MDN ref 12. path;

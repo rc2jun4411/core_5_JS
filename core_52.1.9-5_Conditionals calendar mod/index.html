@@ -11,14 +11,15 @@
   <title>JS Conditionals</title>
 </head>
 
+<!--mod.2-->
 <body>
-<a>"ex-50.38, JS Conditionals"<br></a>
-  <div id="div1">=div1= ・Implementing a basic calendar<br><br>
+  <a>"ex-50.39, JS Conditionals"<br></a>
+  <div id="div1">=div1= ・Implementing a basic calendar mod.<br><br>
     <section>
-      <!-- 【追加】年を選ぶセレクトボックス（最初は空っぽ）per A2.2 -->
+      <!-- 【追加】年を選ぶセレクトボックス per A2.2 -->
       <label for="year">Select year: </label>
       <select id="year"></select>
-      
+
       <label for="month">Select month: </label>
       <select id="month">
         <option value="January">January</option>
@@ -36,21 +37,7 @@
       </select>
       <h1></h1> <!--月-->
 
-      <!--mod. A2.1 from here to =NG=
-      <!- 【追加】曜日を表示するエリア
-      <!-<ul class="weekdays">
-        <li>Sun</li>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
-      </ul>
-      <!-mod. A2.1 there -->
-
-      <!--mod. A2.1.1 from here to  =working good= -->
-      <!-- 【修正】日付のulとは完全に違うタグ（pとspan）で曜日を作ります -->
+      <!-- 【修正】日曜日（Sun）を赤、土曜日（Sat）を青に色付け -->
       <p class="weekdays-header">
         <span style="color: red;">Sun</span>
         <span>Mon</span>
@@ -60,15 +47,14 @@
         <span>Fri</span>
         <span style="color: blue;">Sat</span>
       </p>
-
       <ul></ul> <!--calendarマス目 -->
     </section>
-  </div> <!-- ここで div1 が完全に終わります -->
-  
-  <!-- カレンダー領域（div1）の外側に配置します -->
+  </div>
+
   <hr class="hr2">
   <hr class="hr1">
   <hr>
-    <script src="index.js" defer></script>
+  <script src="index.js" defer></script>
 </body>
+
 </html>

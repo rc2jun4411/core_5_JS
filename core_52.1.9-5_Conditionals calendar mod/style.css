@@ -1,4 +1,4 @@
-/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.9-4_Conditionals calendar\style.css */
+/* C:\Users\rc2ju\Documents\VScode_edit\core_5_JS\core_52.1.9-5_Conditionals calendar mod\style.css */
 
 hr {
     border: none;
@@ -18,7 +18,8 @@ hr {
 .hr1::after {
     background: white; /* none 透明*/
     /*content: "'💚'";*/
-    content: "'🛠️'";
+    /*content: "'🛠️'";*/
+    content: "'✨'";
     padding: 4px;
     position: relative;
     top: -13px;
@@ -79,36 +80,21 @@ li {
     width: 14.28%;
     border: 2px solid white;
     padding: 6px;
-    height: 24px;
-    background-color: #4a2db6;
+    /*margin-bottom: ; 各行間が空いてしまう*/
+
+    /* mod.3 */
+    /*【修正ポイント】固定だった 24px を auto（自動調整）
+        にします */
+    height: auto;
+    /*【おまけの調整】文字を真ん中寄せにして、少し上下に
+        余裕を持たせます */
+    text-align: center;
+    font-size: 11px;
+    /* 文字がはみ出さないように少しだけ小さくします */
+
+    background-color: #9c8ecd;
     color: white;
 }
-
-/*mod A2.1/Gemini */
-/* 曜日と日付のリスト（ul）の共通スタイル 
-.weekdays,
-#div1 ul:not(.weekdays) {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-/* 曜日と日付の各マス（li）を、
- 7等分（100% ÷ 7 ≒ 14.28%）にして横並びにする 
-.weekdays li,
-#div1 ul:not(.weekdays) li {
-    width: 14.28%;
-    text-align: center;
-    padding: 5px 0;
-    box-sizing: border-box;
-}
-/* 曜日の文字だけ少し太く、色を変えると
-おしゃれになります 
-.weekdays li {
-    font-weight: bold;
-    color: #666;
-}*/
 
 /*mod A2.1.1/Gemini */
 /* 曜日全体の横幅をカレンダー（ul）と同じにします */
